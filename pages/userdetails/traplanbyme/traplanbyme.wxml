@@ -1,0 +1,8 @@
+<!--pages/userdetails/traplanbyme/traplanbyme.wxml-->
+<view class='detls'>时间：{{planTime}}</view>
+<view class='detls'>地点：{{planPlace}}</view>
+<view class='detls'>人数：{{num}}人以上</view>
+<view class='detls'>集合地点:{{gathherPlace}}</view>
+
+
+

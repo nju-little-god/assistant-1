@@ -1,0 +1,13 @@
+/* pages/publish/publish.wxss */
+page{
+    background-color: #FFFFFF;
+}
+.button-sp-area{
+    margin-top: 100rpx;
+    margin: 0 auto;
+    padding-top: 15px;
+    width: 60%;
+}
+.box{
+  margin-top: 100rpx;
+}

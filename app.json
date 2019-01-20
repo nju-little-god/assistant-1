@@ -1,0 +1,63 @@
+{
+  "pages":[
+    "pages/firstpage/firstpage",
+    "pages/moments/moments",
+    "pages/publish/publish",
+    "pages/msgaboutme/msgaboutme",
+    "pages/usercenter/usercenter",
+    "pages/publishdetails/plan/plan",
+    "pages/publishdetails/topic/topic",
+    "pages/msgdetails/msg/msg",
+    "pages/msgdetails/likes/likes",
+    "pages/msgdetails/comments/comments",
+    "pages/userdetails/traplanbyme/traplanbyme",
+    "pages/userdetails/trajoinedbyme/trajoinedbyme",
+    "pages/userdetails/topicbyme/topicbyme",
+    "pages/userdetails/trareviewbyme/trareviewbyme",
+    "pages/userdetails/trasavebyme/trasavebyme",
+    "pages/editmsg/editmsg"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/firstpage/firstpage",
+        "iconPath":"image/firstpage.png",
+        "selectedIconPath": "image/fpon.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/moments/moments",
+        "iconPath": "image/moment.png",
+        "selectedIconPath": "image/mton.png",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "iconPath": "image/publish.png",
+        "selectedIconPath": "image/pshon.png",
+        "text": "发布"
+       
+      },
+      {
+        "pagePath": "pages/msgaboutme/msgaboutme",
+        "iconPath": "image/aboutme.png",
+        "selectedIconPath": "image/amon.png",
+        "text": "与我相关"
+        
+      },
+      {
+        "pagePath": "pages/usercenter/usercenter",
+        "iconPath": "image/usercenter.png",
+        "selectedIconPath": "image/ucon.png",
+        "text": "个人中心"
+      
+      }
+    ]
+  }
+}

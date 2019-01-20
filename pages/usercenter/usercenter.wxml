@@ -1,0 +1,79 @@
+<!--pages/usercenter/usercenter.wxml-->
+<view class="container more">
+  <view class="user flex-wrp">
+    <view class="avatar flex-item">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    </view>
+    <view class="user-info flex-item">
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text class="edit" bindtap='editMsg'>性别：{{sex}}　　　年龄：{{age}}岁</text> 
+      <text class="edit"></text>
+    </view>
+  </view>
+  <view class='msg_view'>
+    <view class='msg'>
+    学校：
+     <view class='msg_details' bindtap='editMsg'>
+    {{school}}
+    </view>
+    </view>
+    <view class='msg' bindtap='editMsg'>
+    专业：
+     <view class='msg_details' bindtap='editMsg'>
+    {{major}}
+    </view>
+    </view>
+    <view class='msg' bindtap='editMsg'>
+    入学年份：
+     <view class='msg_details'>
+    {{startTime}}
+    </view>
+    </view>
+    </view>
+  <view class="my">
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+      </view>
+      <view class="myitem-name flex-item">
+        <navigator url='../userdetails/traplanbyme/traplanbyme'>我发起的出游</navigator>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+      </view>
+      <view class="myitem-name flex-item">
+        <navigator url='../userdetails/trajoinedbyme/trajoinedbyme'>我参与的出游</navigator>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+      </view>
+      <view class="myitem-name flex-item">
+        <navigator url='../userdetails/topicbyme/topicbyme'>我发布的帖子</navigator>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+      </view>
+      <view class="myitem-name flex-item">
+        <navigator url='../userdetails/trareviewbyme/trareviewbyme'>我发布的心得</navigator>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        
+      </view>
+      <view class="myitem-name flex-item">
+        <navigator url='../userdetails/trasavebyme/trasavebyme'>我收藏的出游</navigator>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        
+      </view>
+      <view class="myitem-name flex-item">
+        <navigator url='../userdetails/topicsavebyme/topicsavebyme'>我收藏的帖子</navigator>
+      </view>
+    </view>
+  </view>
+</view>

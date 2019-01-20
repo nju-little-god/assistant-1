@@ -1,0 +1,7 @@
+<!--pages/userdetails/trajoinedbyme/trajoinedbyme.wxml-->
+<view class='detls'>发起人：{{holder}}</view>
+<view class='detls'>时间：{{planTime}}</view>
+<view class='detls'>地点：{{planPlace}}</view>
+<view class='detls'>人数：{{num}}人以上</view>
+<view class='detls'>当前人数：{{curNum}}</view>
+<view class='detls'>集合地点:{{gathherPlace}}</view>

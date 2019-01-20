@@ -1,0 +1,17 @@
+<!--pages/moments/moments.wxml-->
+<view class="serach">
+<view class="serach_view_show" bindtap="bindtap"> 搜索</view>
+</view>
+<view class='plan_list'>
+<view class='plan_view'>
+  <view class="wa-item wa-item-ava">
+      <!-- <image class="item-img-round" src="/image/user.jpg"></image>  头像图片-->
+      {{username}}
+    </view>
+    <view class="wa-item wa-item-thumbnail-left">
+      <text class="icon-right ion-chevron-right"></text>
+      <!-- <image class="item-img" src="/image/user.jpg"></image> -->
+      {{topicDetails}}
+    </view>
+</view>
+</view>

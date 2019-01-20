@@ -1,0 +1,10 @@
+<!--pages/publish/publish.wxml-->
+<view class='box'>
+   <view class="button-sp-area">
+        <button class="weui-btn" type="primary" plain="true" bindtap='changeToPlan'>计划</button>
+   </view>
+   <view class="button-sp-area">
+        <button class="weui-btn" type="primary" plain="true" bindtap='changeToTopic'>帖子</button>
+   </view>
+</view>
+   

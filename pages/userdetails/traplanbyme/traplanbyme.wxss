@@ -1,0 +1,10 @@
+/* pages/userdetails/traplanbyme/traplanbyme.wxss */
+.detls{
+  background-color: #fff;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+  line-height: 50rpx;
+  padding: 15rpx 35rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

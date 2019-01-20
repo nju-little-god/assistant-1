@@ -1,0 +1,13 @@
+/* pages/publishdetails/plan/plan.wxss */
+.button-sp-area{
+    margin-top: 100rpx;
+    margin: 0 auto;
+    padding-top: 15px;
+    width: 60%;
+}
+page{
+    background-color: #FFFFFF;
+}
+.dtls{
+  border-radius: 50%;
+}

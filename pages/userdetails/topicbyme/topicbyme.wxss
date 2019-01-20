@@ -1,0 +1,7 @@
+/* pages/userdetails/topicbyme/topicbyme.wxss */
+page{
+    background-color: #FFFFFF;
+}
+image{
+    margin: 4px 0;
+}

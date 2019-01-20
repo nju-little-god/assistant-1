@@ -1,0 +1,21 @@
+<!--pages/publishdetails/plan/plan.wxml-->
+<view class='dtls'>时间：
+<input class='plantime' bindinput='getplantime'></input>
+</view>
+<view  class='dtls'>地点：
+<input class='planplace' bindinput='getplanplace'></input>
+</view>
+<view class='dtls'>计划人数：
+<input class='plannum' bindinput='getplannum'></input>
+</view>
+<view class='dtls'>集合地点：
+<input class='gatherplace' bindinput='gatherplace'></input>
+</view>
+<view class='dtls'>详情：
+<textarea class='plandetails' bindinput='getplandetails'></textarea>
+</view>
+<view class="button-sp-area">
+        <button class="weui-btn" type="primary" plain="true" bindtap='publishplan'>发布</button>
+</view>
+
+
