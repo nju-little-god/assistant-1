@@ -14,7 +14,7 @@ App({
       typeof cb == "function" && cb(this.globalData.userInfo)
     } else {
       //调用登录接口
-      login()
+      //this.login()
     }
   },
   login:function(){
@@ -31,13 +31,14 @@ App({
             userCode: res.code
           },
           success(res) {
-            if(res.result==1){
+            //console.log(res.data.result)
+            if(res.data.result==1){
               that.globalData.sessionKey = res.data.sessionKey
             }
-            else if(res.result==2){
+            else if(res.data.result==2){
+              that.globalData.sessionKey = res.data.sessionKey
               //实现注册界面
-            
-            }else if(res.result==-1){
+            }else if(res.data.result==-1){
               console.log(res.message)
             }
           }
