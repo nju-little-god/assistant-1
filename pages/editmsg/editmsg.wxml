@@ -49,7 +49,7 @@
     </view>
     <view class='box'>
     <view class="button-sp-area">
-        <button class="weui-btn" type="primary" plain="true" bindtap='savemsg'>保存</button>
+        <button class="weui-btn" type="primary" plain="true" bindtap='updateUserInfo'>保存</button>
    </view>
     <view class="button-sp-area">
         <button class="weui-btn" type="primary" plain="true" bindtap='backtomsg'>取消</button>

@@ -5,16 +5,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    traInfo:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('onLoad')
+    var that = this
+    that.getMyCollectingScheduleList()
+    app.getTraInfo(function (traInfo){
+      //更新数据
+      that.setData({
+        traInfo:traInfo
+      })
+    })
 
   },
+  getMyCollectingScheduleList:function(){
+    wx.request({
+      url: "/schedule/getMyCollectingScheduleList",
+      method: "GET",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "sessionKey": app.globalData.sessionKey
+      },
+      success(res) {
+        console.log(res)
+      }
+    })
 
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

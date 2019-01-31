@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    
     username:'路人甲',
     planDetails:'2019年1月20日，计划去总统府。'
   },

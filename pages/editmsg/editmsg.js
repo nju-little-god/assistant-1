@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    updateInfo:{}
 
   },
   backtomsg:function(){
@@ -18,9 +19,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('onLoad')
+    var that = this
+    that.updateUserInfo()
+    app.getUpdateInfo(function(updateInfo){
+      //更新数据
+      that.setData({
+        updateInfo:updateInfo
+      })
+
+    })
 
   },
-
+updateUserInfo:function(){
+  wx.request({
+    url: "/user/updateUserInfo",
+    method: "POST",
+    header: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "sessionKey": app.globalData.sessionKey
+    },
+    success(res) {
+      console.log(res)
+    }
+  })
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
