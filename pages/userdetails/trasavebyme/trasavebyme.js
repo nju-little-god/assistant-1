@@ -31,6 +31,9 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded",
         "sessionKey": app.globalData.sessionKey
       },
+      data:{
+
+      },
       success(res) {
         console.log(res)
       }

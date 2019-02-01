@@ -1,4 +1,5 @@
 // pages/publishdetails/plan/plan.js
+const app = getApp()
 Page({
 
   /**
@@ -28,6 +29,67 @@ Page({
       isRouteMy: '2'
     })
 
+  },
+createSchedule:function(){
+  wx.request({
+    url: app.baseUrl +"/schedule/createSchedule",
+    method: "POST",
+    header: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "sessionKey": app.globalData.sessionKey
+    },
+    data: {
+      target:this.setData.target,
+      meet_place: this.setData.meet_place,
+      recruit_start_time: this.setData.recruit_start_time,
+      recruit_end_time: this.setData.recruit_end_time,
+      execute_time: this.setData.execute_time,
+      end_time: this.setData.end_time,
+      title: this.setData.title,
+      content: this.setData.content,
+      partookNum: this.setData.partookNum
+    }
+  })
+},
+setTitle:function(event){
+  this.setData({
+    title:event.detail.value
+  })
+},
+  setExe_time:function(event){
+    this.setData({
+      execute_time:event.detail.value
+    })
+  },
+  setTarget:function(event){
+    this.setData({
+      target:event.detail.value
+    })
+  },
+  setNum:function(event){
+    this.setData({
+      partookNum:event.detail.value
+    })
+  },
+  setMeet_place:function(event){
+    this.setData({
+      meet_place:event.detail.value
+    })
+  },
+  setStart_time:function(event){
+    this.setData({
+      recruit_start_time:event.detail.value
+    })
+  },
+  setEnd_time:function(event){
+    this.setData({
+      recruit_end_time:event.detail.value
+    })
+  },
+  setDetails:function(event){
+    this.setData({
+      content:event.detail.value
+    })
   },
 
   /**

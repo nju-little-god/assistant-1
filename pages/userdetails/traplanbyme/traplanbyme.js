@@ -1,4 +1,5 @@
 // pages/userdetails/traplanbyme/traplanbyme.js
+const app = getApp()
 Page({
 
   /**
@@ -28,11 +29,13 @@ Page({
   },
   getMyOwningScheduleList:function(){
     wx.request({
-      url: "/schedule/getMyOwningScheduleList",
+      url: app.baseUrl +"/schedule/getMyOwningScheduleList",
       method: "GET",
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
         "sessionKey": app.globalData.sessionKey
+      },
+      data: {
       },
       success(res) {
         console.log(res)

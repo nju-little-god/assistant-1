@@ -1,12 +1,17 @@
 // pages/editmsg/editmsg.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    updateInfo:{}
-
+    uid:"1",
+    nickname:"william",
+    college:"南京大学",
+    major:"软件学院",
+    describe:"暂无",
+    entrence_time:"2018"
   },
   backtomsg:function(){
     wx.redirectTo({
@@ -20,30 +25,50 @@ Page({
    */
   onLoad: function (options) {
     console.log('onLoad')
-    var that = this
-    that.updateUserInfo()
-    app.getUpdateInfo(function(updateInfo){
-      //更新数据
-      that.setData({
-        updateInfo:updateInfo
-      })
+    //初始化的时候要将data里的数据设置好，尤其是uid；然后wxml文件里的内容要和data绑定
+    {
 
-    })
-
+    }
+    
   },
 updateUserInfo:function(){
+  console.log(this.data.uid)
   wx.request({
-    url: "/user/updateUserInfo",
+    url: app.baseUrl+"/user/updateUserInfo",
     method: "POST",
     header: {
       "Content-Type": "application/x-www-form-urlencoded",
       "sessionKey": app.globalData.sessionKey
+    },
+    data: {
+      "uid": this.data.uid,
+      "sex": this.data.sex,
+      "nickname": this.data.nickname,
+      "college": this.data.college,
+      "major":this.data.major,
+      "describe": this.data.describe,
+      "entrance_time":this.data.entrence_time
     },
     success(res) {
       console.log(res)
     }
   })
 },
+setCollege:function(event){
+  this.setData({college:event.detail.value})
+},
+setNickname:function(event){
+  this.setData({nickname:event.detail.value})
+},
+  setSex:function(event){
+    this.setData({sex:event.detail.value})
+  },
+  setMajor:function(event){
+    this.setData({major:event.detail.value})
+  },
+  setEntrance_time:function(event){
+    this.setData({entrance_time:event.detail.value})
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
