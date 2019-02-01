@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    trajoindebymeInfo:{}
 
   },
 
@@ -12,9 +13,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('onLoad')
+    var that = this
+    taht.getMyPartakeScheduleList()
+    app.getTrajoindebymeInfo(function (trajoindebymeInfo){
+      taht.setData({
+        trajoindebymeInfo: trajoindebymeInfo
+      })
+    })
 
   },
-
+  getMyPartakeScheduleList:function(){
+    wx.request({
+      url: "/schedule/getMyPartakeScheduleList",
+      method: "GET",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "sessionKey": app.globalData.sessionKey
+      },
+      success(res) {
+        console.log(res)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

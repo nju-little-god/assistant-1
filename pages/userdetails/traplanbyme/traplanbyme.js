@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    plandata:{},
     planTime:'2019年1月20日',
     planPlace:'南京总统府',
     num:'3',
@@ -15,6 +16,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('onLoad')
+    var that = this
+    that.getMyOwningScheduleList()
+    app.getPlanData(function(planData){
+      that.setData({
+        planData:planData
+      })
+    })
+
+  },
+  getMyOwningScheduleList:function(){
+    wx.request({
+      url: "/schedule/getMyOwningScheduleList",
+      method: "GET",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "sessionKey": app.globalData.sessionKey
+      },
+      success(res) {
+        console.log(res)
+      }
+    })
 
   },
 
