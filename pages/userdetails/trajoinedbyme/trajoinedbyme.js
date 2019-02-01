@@ -1,4 +1,5 @@
 // pages/userdetails/trajoinedbyme/trajoinedbyme.js
+const app=getApp()
 Page({
 
   /**
@@ -15,17 +16,17 @@ Page({
   onLoad: function (options) {
     console.log('onLoad')
     var that = this
-    taht.getMyPartakeScheduleList()
-    app.getTrajoindebymeInfo(function (trajoindebymeInfo){
-      taht.setData({
-        trajoindebymeInfo: trajoindebymeInfo
-      })
-    })
+    that.getMyPartakeScheduleList()
+    // app.getTrajoindebymeInfo(function (trajoindebymeInfo){
+    //   that.setData({
+    //     trajoindebymeInfo: trajoindebymeInfo
+    //   })
+    // })
 
   },
   getMyPartakeScheduleList:function(){
     wx.request({
-      url: "/schedule/getMyPartakeScheduleList",
+      url: app.baseUrl+"/schedule/getMyPartakeScheduleList",
       method: "GET",
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
