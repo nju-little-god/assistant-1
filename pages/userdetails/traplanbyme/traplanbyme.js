@@ -6,11 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    plandata:{},
-    planTime:'2019年1月20日',
-    planPlace:'南京总统府',
-    num:'3',
-    gathherPlace:'珠江路地铁站1号口'
+    schedule:[{
+      sid:"",
+      title:"",
+      execute_time:"",
+      target:"",
+      status:""
+    }]
   },
 
   /**
@@ -20,14 +22,9 @@ Page({
     console.log('onLoad')
     var that = this
     that.getMyOwningScheduleList()
-    app.getPlanData(function(planData){
-      that.setData({
-        planData:planData
-      })
-    })
-
   },
   getMyOwningScheduleList:function(){
+    var that =this
     wx.request({
       url: app.baseUrl +"/schedule/getMyOwningScheduleList",
       method: "GET",
@@ -39,6 +36,9 @@ Page({
       },
       success(res) {
         console.log(res)
+        that.setData({
+          schedule:res.data.data
+        })
       }
     })
 

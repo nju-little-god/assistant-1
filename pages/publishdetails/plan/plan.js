@@ -6,7 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    target: "",
+    meet_place: "",
+    recruit_start_time: "",
+    recruit_end_time: "",
+    execute_time: "",
+    end_time: "",
+    title: "",
+    content:"",
+    partookNum: ""
   },
   getplantime:function(e){
     this.data.getplantime = e.detail.value;
@@ -39,15 +47,31 @@ createSchedule:function(){
       "sessionKey": app.globalData.sessionKey
     },
     data: {
-      target:this.setData.target,
-      meet_place: this.setData.meet_place,
-      recruit_start_time: this.setData.recruit_start_time,
-      recruit_end_time: this.setData.recruit_end_time,
-      execute_time: this.setData.execute_time,
-      end_time: this.setData.end_time,
-      title: this.setData.title,
-      content: this.setData.content,
-      partookNum: this.setData.partookNum
+      target:this.data.target,
+      meet_place: this.data.meet_place,
+      recruit_start_time: this.data.recruit_start_time,
+      recruit_end_time: this.data.recruit_end_time,
+      execute_time: this.data.execute_time,
+      end_time: this.data.end_time,
+      title: this.data.title,
+      content: this.data.content,
+      partookNum: this.data.partookNum
+    },
+    success(res){
+      console.log(res)
+      if (res.data.result == 1) {
+        console.log("发布成功")
+        wx.showToast({
+          title: res.data.message,
+          icon: 'success',
+          duration: 2000
+        })
+        setTimeout(function () {
+          wx.navigateBack({
+            delta:2
+          })
+        }, 2000)
+      }
     }
   })
 },
@@ -81,7 +105,7 @@ setTitle:function(event){
       recruit_start_time:event.detail.value
     })
   },
-  setEnd_time:function(event){
+  setReEnd_time:function(event){
     this.setData({
       recruit_end_time:event.detail.value
     })
@@ -91,7 +115,11 @@ setTitle:function(event){
       content:event.detail.value
     })
   },
-
+  setEnd_time:function(event){
+    this.setData({
+      end_time:event.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

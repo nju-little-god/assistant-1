@@ -1,0 +1,74 @@
+<!--pages/details/details.wxml-->
+<view class='plan_view'>
+
+  <view class='header'>
+      <view class="title_title">{{schedule.title}}</view>
+      <button class='nofollow'>+ 关注</button>
+      <button class='isfollow'>已关注</button>
+  </view>
+  <!-- <view class="wa-item wa-item-ava"> -->
+      <!-- <image class="item-img-round" src="/image/user.jpg"></image>  头像图片-->
+      <!-- {{nickname}}
+    </view> -->
+  <!-- 用户名，头像，发表时间 -->
+  <view class="title">
+    <!-- <image class="item-img-round" src="/image/user.jpg"></image>  头像图片-->
+    {{schedule.nickname}}
+    <!-- 日期 -->
+    <view class="time">{{schedule.start_time}}</view>
+    <view class="status">{{schedule.status}}</view>
+  </view>
+  
+
+    <view class="wa-item wa-item-ava">
+      目的地：{{schedule.target}}
+    </view>
+    <view class="wa-item wa-item-ava">
+      出发地点：{{schedule.meet_place}}
+    </view>
+    <view class="wa-item wa-item-ava">
+      开始报名时间：{{schedule.recruit_start_time}}
+    </view>
+    <view class="wa-item wa-item-ava">
+      报名截止时间：{{schedule.recruit_end_time}}
+    </view>
+    <view class="wa-item wa-item-ava">
+      集合时间：{{schedule.execute_time}}
+    </view>
+    <view class="wa-item wa-item-ava">
+      结束时间：{{schedule.end_time}}
+    </view>
+    <view class="wa-item wa-item-thumbnail-left">
+      <text class="icon-right ion-chevron-right"></text>
+      <!-- <image class="item-img" src="/image/user.jpg"></image> -->
+      详情：{{schedule.content}}
+    </view>
+    
+    
+</view>
+
+
+<view class="answer-actions">
+      <view class="like">
+          <a>参与人数：{{partookNum}}  </a>
+      </view>
+        <view class="comments">
+          <a>公告数量：{{announcementNum}}  </a>
+       </view>
+</view>
+
+<button class='join'  bindtap='partakeSchedule'>加入计划</button>
+<!-- <view class="operation flex-wrp flex-tab">
+    <view class="operation-btn flex-item">
+         <image src="../../images/heart2.png"></image> 
+        <text>点赞</text>
+    </view>
+    <view class="operation-btn flex-item">
+    <image src="../../images/star2.png"></image> 
+      <text bindtap="showCommentDialog">评论</text>
+    </view>
+</view> -->
+
+
+
+    

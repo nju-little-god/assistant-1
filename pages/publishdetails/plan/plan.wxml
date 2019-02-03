@@ -1,9 +1,12 @@
-<!--pages/publishdetails/plan/plan.wxml-->
+    <!--pages/publishdetails/plan/plan.wxml-->
 <view class='dtls'>标题：
 <input class='plantitle' bindinput='setTitle'>{{title}}</input>
 </view>
 <view class='dtls'>集合时间：
 <input class='plantime' bindinput='setExe_time'>{{execute_time}}</input>
+</view>
+<view class='dtls'>结束时间：
+<input class='endtime' bindinput='setEnd_time'>{{end_time}}</input>
 </view>
 <view  class='dtls'>出游地点：
 <input class='planplace' bindinput='setTarget'>{{target}}</input>
@@ -18,7 +21,7 @@
 <input class='gatherplace' bindinput='setStart_time'>{{recruit_start_time}}</input>
 </view>
 <view class='dtls'>报名结束时间：
-<input class='gatherplace' bindinput='setEnd_time'>{{recruit_end_time}}</input>
+<input class='gatherplace' bindinput='setReEnd_time'>{{recruit_end_time}}</input>
 </view>
 <view class='dtls'>详情：
 <textarea class='plandetails' bindinput='setDetails'>{{content}}</textarea>
