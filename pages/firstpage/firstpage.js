@@ -1,20 +1,54 @@
 // pages/firstpage/firstpage.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
-    username:'路人甲',
-    planDetails:'2019年1月20日，计划去总统府。'
+    scheduleList:[{
+      sid: 1,
+      uid: 1,
+      nickname: "William",
+      title: "计划标题",
+      target: "计划目的地",
+      execute_time: "出发时间",
+      status: "当前状态",
+      describe: "简介",
+      likeNum: "点赞数量",
+      commentNum: "评论数量"
+    }],
   },
 
+  planDetails: function () {
+    wx.navigateTo({
+      url: '../details/details',
+    })
+  },
+  getScheduleList:function(){
+    var that=this
+    //console.log("asdhilwnakd"+app.globalData.sessionKey)
+    wx.request({
+      url: app.baseUrl+'/schedule/getAllSchedule',
+      method:"GET",
+      header:{
+        "Content-Type": "application/x-www-form-urlencoded",
+        //"sessionKey": app.globalData.sessionKey
+      },
+      data:{
+      },
+      success(res){
+        that.setData({
+          scheduleList:res.data.data
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getScheduleList()
   },
 
   /**

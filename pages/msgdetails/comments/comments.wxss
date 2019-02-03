@@ -1,1 +1,38 @@
 /* pages/msgdetails/comments/comments.wxss */
+/*list*/
+.wa-list{
+  width:100%;
+  position:relative;
+}
+.wa-item{
+  width: 100%;
+  border: 1px solid #ddd;
+  margin: -1px 0;  
+  font-size: 16px;
+  display: block;
+  color: #444;
+  padding:10px;
+  height: 40px;
+  box-sizing: border-box;
+  position:relative;
+  background-color: #fff;
+}
+.wa-item-ava{
+  padding-left:60px;
+  min-height: 60px;
+}
+.wa-item-ava .item-img{
+  position:absolute;
+  top:10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+}
+.wa-item-ava .item-img-round{
+  position:absolute;
+  top:10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}

@@ -2,12 +2,9 @@ var util = require('../../utils/util.js')
 const app = getApp()
 Page({
   data: {
-    userInfo: {},
-    sex: '男',
-    age: '22',
-    school: '南京大学',
-    major: '软件工程',
-    startTime: '2018年'
+    userInfo: {
+
+    },
   },
   //事件处理函数
   bindViewTap: function () {
@@ -20,6 +17,12 @@ Page({
       url: '../editmsg/editmsg',
     })
   },
+  register: function () {
+    wx.navigateTo({
+      url: '../register/register',
+    })
+  },
+
   onLoad: function () {
     console.log('onLoad')
     var that = this
@@ -34,6 +37,7 @@ Page({
   },
   getMyInfo: function () {
     //console.log(app.globalData)
+    var that =this
     wx.request({
       url: app.baseUrl + '/getMyInfo',
       method: "GET",
@@ -43,6 +47,9 @@ Page({
       },
       success(res) {
         console.log(res)
+        that.setData({
+          userInfo:res.data.data
+        })
       }
     })
   }

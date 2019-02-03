@@ -1,11 +1,18 @@
 // pages/userdetails/trasavebyme/trasavebyme.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    traInfo:{}
+    schedule: [{
+      sid: "",
+      title: "",
+      execute_time: "",
+      target: "",
+      status: ""
+    }]
   },
 
   /**
@@ -14,28 +21,24 @@ Page({
   onLoad: function (options) {
     console.log('onLoad')
     var that = this
-    that.getMyCollectingScheduleList()
-    app.getTraInfo(function (traInfo){
-      //更新数据
-      that.setData({
-        traInfo:traInfo
-      })
-    })
-
+    that.collectingScheduleList()
   },
-  getMyCollectingScheduleList:function(){
+  collectingScheduleList: function () {
+    var that = this
     wx.request({
-      url: "/schedule/getMyCollectingScheduleList",
+      url: app.baseUrl + "/schedule/getMyCollectingScheduleList",
       method: "GET",
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
         "sessionKey": app.globalData.sessionKey
       },
-      data:{
-
+      data: {
       },
       success(res) {
         console.log(res)
+        that.setData({
+          schedule: res.data.data
+        })
       }
     })
 

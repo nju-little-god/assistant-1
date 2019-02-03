@@ -2,16 +2,42 @@
 <view class="serach">
 <view class="serach_view_show" bindtap="bindtap"> 搜索</view>
 </view>
-<view class='plan_list'>
-<view class='plan_view'>
-  <view class="wa-item wa-item-ava">
+<view class='plan_list' wx:for="{{scheduleList}}" wx:for-index="idx" wx:for-item="schDtls">
+<navigator class='plan_view' url='../details/details?sid={{schDtls.sid}}'>
+  <!-- <view class="wa-item wa-item-ava"> -->
       <!-- <image class="item-img-round" src="/image/user.jpg"></image>  头像图片-->
-      {{username}}
+      <!-- {{username}}
+    </view> -->
+  <!-- 用户名，头像，发表时间 -->
+  <view class="title">
+    <!-- <image class="item-img-round" src="/image/user.jpg"></image>  头像图片-->
+    {{schDtls.nickname}}
+    <!-- 日期 -->
+    <view class="time">{{schDtls.execute_time}}</view>
+  </view>
+  
+    <view class="wa-item wa-item-thumbnail-left">
+      <text class="icon-right ion-chevron-right"></text>
+      <!-- <image class="item-img" src="/image/user.jpg"></image> -->
+      {{schDtls.title}}
     </view>
     <view class="wa-item wa-item-thumbnail-left">
       <text class="icon-right ion-chevron-right"></text>
       <!-- <image class="item-img" src="/image/user.jpg"></image> -->
-      {{planDetails}}
+      {{schDtls.describe}}
     </view>
-</view>
+    <view class="wa-item wa-item-thumbnail-left">
+      <text class="icon-right ion-chevron-right"></text>
+      <!-- <image class="item-img" src="/image/user.jpg"></image> -->
+      {{schDtls.status}}
+    </view>
+    <view class="answer-actions">
+          <view class="like">
+            <a>{{schDtls.likeNun}} 赞同 </a>
+          </view>
+          <view class="comments">
+            <a>{{schDtls.commentNum}} 评论 </a>
+          </view>
+        </view>
+</navigator>
 </view>

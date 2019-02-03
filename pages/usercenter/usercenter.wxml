@@ -6,7 +6,7 @@
     </view>
     <view class="user-info flex-item">
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      <text class="edit" bindtap='editMsg'>性别：{{userInfo.sex}}　　　年龄：{{userInfo.age}}岁</text> 
+      <text class="edit" bindtap='register'>性别：{{userInfo.sex}}　　　年龄：22岁</text> 
       <text class="edit"></text>
     </view>
   </view>
@@ -20,7 +20,7 @@
     <view class='msg' bindtap='editMsg'>
     专业：
      <view class='msg_details' bindtap='editMsg'>
-    {{userInfo.majod}}
+    {{userInfo.major}}
     </view>
     </view>
     <view class='msg' bindtap='editMsg'>

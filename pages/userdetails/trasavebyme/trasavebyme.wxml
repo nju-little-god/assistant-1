@@ -1,7 +1,9 @@
 <!--pages/userdetails/trasavebyme/trasavebyme.wxml-->
-<view class='detls'>发起人：{{holder}}</view>
-<view class='detls'>时间：{{planTime}}</view>
-<view class='detls'>地点：{{planPlace}}</view>
-<view class='detls'>人数：{{num}}人以上</view>
-<view class='detls'>当前人数：{{curNum}}</view>
-<view class='detls'>集合地点:{{gathherPlace}}</view>
+<view wx:for="{{schedule}}" wx:for-index="idx" wx:for-item="sch">
+<view class='detls'>标题：{{sch.title}}</view>
+<view class='detls'>时间：{{sch.execute_time}}</view>
+<view class='detls'>地点：{{sch.target}}</view>
+<view class='detls'>当前状态：{{sch.status}}</view>
+<view text="\n"></view>
+</view>
+
