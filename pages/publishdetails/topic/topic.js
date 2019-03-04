@@ -1,123 +1,108 @@
-// pages/publishdetails/topic/topic.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-
   data: {
-    topictitle:null,
-    topiccontent:null,
-    height: 20,
-    focus: false,
-    source:''
+    img_url: [],
+    content: '',
+    moment_src:'../../../image/add.png'
   },
-  topictitle:function(e){
-    this.data.topictitle=e.detail.value;
-  },
-
-  bindTextAreaBlur: function (e) {
-    console.log(e.detail.value)
-  },
-
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    var pages = getCurrentPages() //  获取页面栈   
-    console.log(pages)
-    var prevPage = pages[pages.length - 2]    // 上一个页面  
-    prevPage.setData({
-      // 给上一个页面变量赋值   
-      isRouteMy: '2'
+  },
+  input: function (e) {
+    this.setData({
+      content: e.detail.value
     })
   },
-  uploadimg: function () {
+  chooseimage: function () {
     var that = this;
-    wx.chooseImage({  //从本地相册选择图片或使用相机拍照
-      count: 9, // 默认9
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-
+    wx.chooseImage({
+      count: 9, // 默认9 
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有 
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有 
       success: function (res) {
-        //console.log(res)
-        //前台显示
-        that.setData({
-          source: res.tempFilePaths
-        })
-
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths
-        wx.uploadFile({
-          url: 'http://www.website.com/home/api/uploadimg',
-          filePath: tempFilePaths[0], 
-          name: 'file',
-
-          success: function (res) {
-            //打印
-            console.log(res.data)
+        if (res.tempFilePaths.length > 0) {
+          //图如果满了9张，不显示加图
+          if (res.tempFilePaths.length == 9) {
+            that.setData({
+              hideAdd: 1
+            })
+          } else {
+            that.setData({
+              hideAdd: 0
+            })
           }
-        })
-
+          //把每次选择的图push进数组
+          let img_url = that.data.img_url;
+          for (let i = 0; i < res.tempFilePaths.length; i++) {
+            img_url.push(res.tempFilePaths[i])
+          }
+          that.setData({
+            img_url: img_url
+          })
+        }
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  //发布按钮事件
+  send: function () {
+    var that = this;
+    var user_id = wx.getStorageSync('userid')
+    wx.showLoading({
+      title: '上传中',
+    })
+    that.img_upload()
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    if (this.data.isRouteMy == '2') {
-      wx.switchTab({
-        url: '../../pages/publish/publish',
-        success: function (e) {
-          var page = getCurrentPages().pop();
-          if (page == undefined || page == null) return; page.onLoad();
+  //图片上传
+  img_upload: function () {
+    let that = this;
+    let img_url = that.data.img_url;
+    let img_url_ok = [];
+    //由于图片只能一张一张地上传，所以用循环
+    for (let i = 0; i < img_url.length; i++) {
+      wx.uploadFile({
+        //路径填你上传图片方法的地址
+        url: 'http://wechat.homedoctor.com/Moments/upload_do',
+        filePath: img_url[i],
+        name: 'file',
+        formData: {
+          'user': 'test'
+        },
+        success: function (res) {
+          console.log('上传成功');
+          //把上传成功的图片的地址放入数组中
+          img_url_ok.push(res.data)
+          //如果全部传完，则可以将图片路径保存到数据库
+          if (img_url_ok.length == img_url.length) {
+            var userid = wx.getStorageSync('userid');
+            var content = that.data.content;
+            wx.request({
+              url: 'http://wechat.homedoctor.com/Moments/adds',
+              data: {
+                user_id: userid,
+                images: img_url_ok,
+                content: content,
+              },
+              success: function (res) {
+                if (res.data.status == 1) {
+                  wx.hideLoading()
+                  wx.showModal({
+                    title: '提交成功',
+                    showCancel: false,
+                    success: function (res) {
+                      if (res.confirm) {
+                        wx.navigateTo({
+                          url: '/pages/my_moments/my_moments',
+                        })
+                      }
+                    }
+                  })
+                }
+              }
+            })
+          }
+        },
+        fail: function (res) {
+          console.log('上传失败')
         }
       })
-
     }
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

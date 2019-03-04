@@ -4,3 +4,58 @@ page{
 image{
     margin: 4px 0;
 }
+.button-sp-area{
+    margin-top: 50px;
+    margin-block-end: 30px;
+    margin:  0 auto;
+    padding-top: 15px;
+    width: 60%;
+}
+.button_add{
+    /* margin-top: 100rpx; */
+    margin-left: 10px;
+    margin-block-end: 30px;
+    position: left;
+    padding-top: 15px;
+    font-size: 50px;
+    width: 100px;
+    height: 100px;
+    line-height: 1.3em;
+}
+
+.addpicture{
+ width:31%;
+ height: 100px;
+ padding: 2px
+}
+.moment_img{
+ width: 98px;
+ height: 98px;
+}
+
+.topictitle{
+  margin-left: 10px;
+  color: #666;
+  font-size: 20px;
+  line-height: 2em;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 5px
+}
+.topiccontent{
+  margin-left: 10px;
+  margin-top: 10px;
+  color: #666;
+  font-size: 15px;
+  line-height: 2em;
+  width: 100%;
+  /* margin-bottom: 20px; */
+  padding: 5px
+}
+
+.divLine{
+ background: #E0E3DA;
+ width: 90%;
+ margin-left: 10px;
+ height: 5rpx;
+}

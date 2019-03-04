@@ -1,53 +1,29 @@
-<!--pages/publishdetails/topic/topic.wxml-->
-<!-- <view>标题：
-<input class='topictitle' bindinput='topictitle'></input>
-</view>
-<view >详情：
-<textarea  class='topiccontent' bindinput='bindTextAreaBlur' />
-</view>
 <view>
-<view>
-<button class='imgupload' bindtap="uploadimg">点击选择上传图片</button>
-</view>
-<image src='{{source}}'/>
+  <input class='topictitle' bindinput='topictitle' placeholder='请输入标题...'></input>
 </view>
 
-<view>
-<button class='submitbtn' name='submit'  bindtap='topicsubmit'>发布</button>
+<view class="container">
+     <!-- 分割线 -->
+  <view class="divLine"></view>
+</view>
+<!-- <textarea class='text' bindinput="input" placeholder="分享动态" auto-height/> -->
+<view class='_class'>
+  <textarea  class='topiccontent' bindinput='bindTextAreaBlur' placeholder='请输入内容...' />
+</view>
+ <view class='addpicture' style='display:{{hideAdd?"none":"block"}}'>
+  <image bindtap="chooseimage" class="moment_img" src='{{moment_src}}'></image>
+ </view>
+<!-- <view>
+  <image class='picture' src='{{source}}' style='display:{{hideAdd?"none":"block"}}'/>
+  <view >
+    <button  class="button_add" type="primary" plain="true" bindtap="uploadimg">
+    +
+    </button>
+  </view>
+  
 </view> -->
-<view class="page">
-    <view class="page__hd">
-        <view class="page__title">Article</view>
-        <view class="page__desc">文章</view>
-    </view>
-    <view class="page__bd">
-        <view class="weui-article">
-            <view class="weui-article__h1">大标题</view>
-            <view class="weui-article__section">
-                <view class="weui-article__title">章标题</view>
-                <view class="weui-article__section">
-                    <view class="weui-article__h3">1.1 节标题</view>
-                    <view class="weui-article__p">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
-                    </view>
-                    <view class="weui-article__p">
-                        <image class="weui-article__img" src="../images/pic_article.png" mode="aspectFit" style="height: 180px" />
-                        <image class="weui-article__img" src="../images/pic_article.png" mode="aspectFit" style="height: 180px" />
-                    </view>
-                </view>
-                <view class="weui-article__section">
-                    <view class="weui-article__h3">1.2 节标题</view>
-                    <view class="weui-article__p">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </view>
-                </view>
-            </view>
-        </view>
-    </view>
+<view class='btn_box' style='margin-top:10px;'>
+<view class="button-sp-area">
+  <button class='weui-btn' type="primary" plain="true" name='submit'  bindtap='send'>发布</button>
+</view>
 </view>

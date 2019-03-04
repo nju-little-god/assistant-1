@@ -35,7 +35,7 @@
   text-align: center;
   line-height: 65rpx;
   font-size: 30rpx;
-  background-color: #0068C4;
+  background-color: #09bb07;
   color: white;
   border: none;
 }
@@ -52,8 +52,10 @@
 }
 
 .join{
+  margin-top: 10px;
+  margin-bottom: 20px;
   width:600rpx;
-  background-color: #0068C4;
+  background-color: #09bb07;
   color: white;
   border: none;
 }
@@ -86,7 +88,7 @@ margin-top: 25rpx;
 }
 .wa-item-ava{
   padding-left:60px;
-  min-height: 60px;
+  min-height: 40px;
 }
 .wa-item-ava .item-img-round{
   position:absolute;
@@ -155,6 +157,8 @@ margin-top: 25rpx;
 }
 
 .answer-actions{
+  display: flex;
+  justify-content: space-between;
   width: 690rpx;
   padding: 10rpx 0  0;
   color: #a0acac;

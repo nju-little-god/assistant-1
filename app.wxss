@@ -1,5 +1,5 @@
 /**app.wxss**/
-@import "import.wxss";
+
 .container {
   height: 100%;
   display: flex;
@@ -71,7 +71,7 @@
   display: inline-block;
   height: 40rpx;
 }
-.container .feed-item .feed-source .avatar image{
+.container .feed-item .feed-source {
   /*position: absolute;*/
   display: inline-block;
   width: 45rpx;
