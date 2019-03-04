@@ -16,7 +16,9 @@
     "pages/userdetails/trareviewbyme/trareviewbyme",
     "pages/userdetails/trasavebyme/trasavebyme",
     "pages/editmsg/editmsg",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/details/details",
+    "pages/register/register"
   ],
   "window":{
     "backgroundTextStyle":"light",

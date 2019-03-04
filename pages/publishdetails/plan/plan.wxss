@@ -1,13 +1,30 @@
 /* pages/publishdetails/plan/plan.wxss */
+@import "../../../import.wxss";
 .button-sp-area{
     margin-top: 100rpx;
-    margin: 0 auto;
+    margin-block-end: 30px;
+    margin:  0 auto;
     padding-top: 15px;
     width: 60%;
 }
 page{
     background-color: #FFFFFF;
 }
+
 .dtls{
-  border-radius: 50%;
+  /* border-radius: 10px; */
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  background: #f8f8f8;
+  line-height: 2em;
+}
+._class{
+  margin-left: 1em;
+  color: #666;
+}
+
+.end{
+  margin-top: 30px;
+  color: #FFFFFF;
 }
