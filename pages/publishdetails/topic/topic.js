@@ -2,7 +2,9 @@ Page({
   data: {
     img_url: [],
     content: '',
-    moment_src:'../../../image/add.png'
+    moment_src:'../../../image/add.png',
+    addressData: null,
+    addRessName:false,
   },
   onLoad: function (options) {
   },
@@ -49,7 +51,29 @@ Page({
       title: '上传中',
     })
     that.img_upload()
+  }, bindAddress: function () {
+    var that = this
+
+    // 取消选择地理位置后获取当前人经纬度调用后台接口接收当前地理位置
+    wx.chooseLocation({
+      success: function (lb) {
+        //console.log(lb)
+        that.data.addressData = lb
+        that.setData({
+          addRessName: lb.name
+        })
+        //console.debug(that.data.addressData)  
+      },
+      cancel: function (lb) // 取消选择
+      {
+        //that.data.addressData = that.data.userStatus
+      },
+      fail: function (lb) {
+        console.log(lb)
+      }
+    })
   },
+
   //图片上传
   img_upload: function () {
     let that = this;
