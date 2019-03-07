@@ -1,7 +1,5 @@
 /* pages/details/details.wxss */
 
-/* pages/firstpage/firstpage.wxss */
-/* @import "../../template/comment.wxss"; */
 
 
 .header {
@@ -15,18 +13,10 @@
     margin: 10px 10px;
     float: left;
 }
-.nofollow {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width:160rpx;
-  height: 65rpx;
-  text-align: center;
-  line-height: 65rpx;
-  font-size: 30rpx;
+.title{
+  font-size: 16px;
 }
-
-.isfollow {
+.iscollection{
   position: absolute;
   top: 10px;
   right: 10px;
@@ -41,12 +31,14 @@
 }
 .time{
   font-size: 30rpx;
-  color: gray
+  color: gray;
+  margin-left:180px;
   
 }
 
 .status{
-  left: 20px;
+  margin-top: 10px;
+  right: 10px;
   color: #0068C4;
 
 }
@@ -58,25 +50,6 @@
   background-color: #09bb07;
   color: white;
   border: none;
-}
-.serach{
-    margin-top: 18rpx;
-    margin-left: 25rpx;
-    margin-right: 25rpx;
-    padding-left: 25rpx;
-    background-color: #F3F3F3;
-    border-radius: 12rpx;
-
-}
-.serach_view_show{
-    display: block;
-    color: #8f5c5c;
-    padding-left: 285rpx;
-    padding-top: 30rpx;
-    padding-bottom: 15rpx;
-    font-size: 30rpx;
-    background-color: #F3F3F3;
-    border-radius: 12rpx;
 }
 .message_list{
   background-color: #f2f2f2;
@@ -171,3 +144,17 @@ margin-top: 25rpx;
   font-size: 35rpx;
   margin-right: 20rpx;
 }
+.biao
+ {
+   width: 50rpx;
+   height:40rpx;
+   overflow:hidden;
+   margin-top:-32rpx;
+   margin-left:680rpx;
+   margin-bottom:20rpx;
+ }
+  .baseimg
+ {
+   width:100%;
+   height:100%;
+ }

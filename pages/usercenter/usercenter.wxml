@@ -31,6 +31,20 @@
     </view>
     </view>
   <view class="my">
+   <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+      </view>
+      <view class="myitem-name flex-item">
+        <navigator url='#'>我关注的人</navigator>
+      </view>
+    </view>
+     <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+      </view>
+      <view class="myitem-name flex-item">
+        <navigator url='#'>关注我的人</navigator>
+      </view>
+    </view>
     <view class="my-item flex-wrp">
       <view class="myitem-icon flex-item" >
       </view>

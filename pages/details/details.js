@@ -7,6 +7,9 @@ Page({
    */
 
   data: {
+    biao_src:'../../image/biao.png',
+    fo_btnText:'+关注',
+    co_btnText: '收藏',
     sid: 1,
     schedule:{
       nickname: '路人甲',
@@ -54,6 +57,10 @@ Page({
       }
     })
   },
+  collect:function(){
+    this.setData({ co_btnText:'已收藏'})
+  },
+
   partakeSchedule: function () {
     wx.request({
       url: app.baseUrl + "/schedule/partakeSchedule?sid=" + this.data.sid,

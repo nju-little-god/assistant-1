@@ -10,18 +10,28 @@
 <view class='_class'>
   <textarea  class='topiccontent' bindinput='bindTextAreaBlur' placeholder='请输入内容...' />
 </view>
- <view class='addpicture' style='display:{{hideAdd?"none":"block"}}'>
+<view class="image_content">
+ <view class='image' wx:for="{{img_url}}">
+  <image class="moment_img" src="{{item}}"></image>
+ </view>
+ <view class='image' style='display:{{hideAdd?"none":"block"}}'>
   <image bindtap="chooseimage" class="moment_img" src='{{moment_src}}'></image>
  </view>
-<!-- <view>
-  <image class='picture' src='{{source}}' style='display:{{hideAdd?"none":"block"}}'/>
-  <view >
-    <button  class="button_add" type="primary" plain="true" bindtap="uploadimg">
-    +
-    </button>
-  </view>
+ </view>
+
+     <view class="address">
+        <view class="xian"></view>
+
+        <view bindtap="bindAddress">
+            <image class="biao" src="../../../image/address.png" mode="aspectFit"></image>
+            <text class="weizhi">{{addRessName?addRessName:'所在位置'}}
+                <input name="address" value="{{addRessName}}" type='text'/>
+            </text>
+            <image class="jiantou" src="../../../image/jt.png" mode="aspectFit"></image>
+        </view>
+    </view>   
   
-</view> -->
+
 <view class='btn_box' style='margin-top:10px;'>
 <view class="button-sp-area">
   <button class='weui-btn' type="primary" plain="true" name='submit'  bindtap='send'>发布</button>
