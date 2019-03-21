@@ -1,0 +1,39 @@
+<view>
+  <input class='topictitle' bindinput='topictitle' placeholder='请输入标题...'></input>
+</view>
+
+<view class="container">
+     <!-- 分割线 -->
+  <view class="divLine"></view>
+</view>
+<!-- <textarea class='text' bindinput="input" placeholder="分享动态" auto-height/> -->
+<view class='_class'>
+  <textarea  class='topiccontent' bindinput='bindTextAreaBlur' placeholder='请输入内容...' />
+</view>
+<view class="image_content">
+ <view class='image' wx:for="{{img_url}}">
+  <image class="moment_img" src="{{item}}"></image>
+ </view>
+ <view class='image' style='display:{{hideAdd?"none":"block"}}'>
+  <image bindtap="chooseimage" class="moment_img" src='{{moment_src}}'></image>
+ </view>
+ </view>
+
+     <view class="address">
+        <view class="xian"></view>
+
+        <view bindtap="bindAddress">
+            <image class="biao" src="../../../image/address.png" mode="aspectFit"></image>
+            <text class="weizhi">{{addRessName?addRessName:'所在位置'}}
+                <input name="address" value="{{addRessName}}" type='text'/>
+            </text>
+            <image class="jiantou" src="../../../image/jt.png" mode="aspectFit"></image>
+        </view>
+    </view>   
+  
+
+<view class='btn_box' style='margin-top:10px;'>
+<view class="button-sp-area">
+  <button class='weui-btn' type="primary" plain="true" name='submit'  bindtap='send'>发布</button>
+</view>
+</view>

@@ -1,0 +1,103 @@
+<!--pages/editmsg/editmsg.wxml-->
+<!--pages/usercenter/editmsg/editmsg.wxml-->
+<!-- <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">昵称</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入昵称" bindinput="setNickname">{{nickname}}</input>
+                </view>
+            </view></view>
+              <view class="weui-cell weui-cell_input">
+                <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">性别</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入性别" bindinput="setSex">{{sex}}</input>
+                </view>
+            </view></view>
+             <view class="weui-cell weui-cell_input">
+                <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">学校</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入学校" bindinput="setCollege">{{college}}</input>
+                </view>
+            </view></view>
+             <view class="weui-cell weui-cell_input">
+                <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">专业</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入专业" bindinput="setMajor">{{major}}</input>
+                </view>
+            </view></view>
+             <view class="weui-cell weui-cell_input">
+                <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">入学年份</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入入学年份" bindinput="setEntrance_time">{{entrance_time}}</input>
+                </view>
+            </view></view>
+    </view> -->
+
+
+    <view class='back'>
+  <!-- <view class='top'></view> -->
+  <view class='dtls'>
+    <view class="text">昵称</view>
+    <input class="weui-input"  bindinput="setNickname" value='{{nickname}}'>{{nickname}}</input>
+  </view>
+
+  <view class='dtls'>
+    <view class="text">性别</view>
+    <!-- <input class="weui-input" placeholder="请输入性别" bindinput="setSex">{{sex}}</input> -->
+    <!-- <picker bindchange="setSex"  value='{{index}}' range="{{sex}}">
+        <view class='weui-input'>{{sex[index]}}</view>
+    </picker> -->
+    <picker range="{{sex}}" value="{{index}}" bindchange="setSex">
+    <view class='weui-input'>
+      {{sex[index]}}
+    </view>
+</picker>
+  </view>
+
+  <view class='dtls'> 
+    <view class="text">学校</view>
+    <input class="weui-input"  bindinput="setCollege" value='{{college}}'>{{college}}</input>
+  </view>
+
+  <view class='dtls'>
+    <view class="text">专业</view>
+    <input class="weui-input"  bindinput="setMajor" value='{{major}}'>{{major}}</input>
+  </view>
+
+  <view class='dtls'>
+    <view class="text">入学年份</view>
+
+    <picker class='weui-input'  mode="date" value="{{entrance_time}}" start="1999-01-01" end="2999-12-12" bindchange="setEntrance_time">
+     {{entrance_time}}
+    </picker>
+  </view>
+
+  <view class='dtls'>
+    <view class="text">用户描述</view>
+    <textarea class='weui-input'  bindinput="setDescribe">{{describe}}</textarea>
+  </view>
+</view>
+    <view class='box'>
+    <view class="button-sp-area">
+        <button class="weui-btn" type="primary" plain="true" bindtap='updateUserInfo'>保存</button>
+   </view>
+    <view class="button-sp-area">
+        <button class="weui-btn" type="primary" plain="true" bindtap='backtomsg'>取消</button>
+   </view>
+    </view>
+    

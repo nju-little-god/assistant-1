@@ -1,0 +1,17 @@
+<!--pages/notice/releasenotic/releasenotic.wxml-->
+<view>
+  <input class='topictitle' bindinput='SetTitle' placeholder='请输入标题...'>{{title}}</input>
+</view>
+
+<view class="container">
+     <!-- 分割线 -->
+  <view class="divLine"></view>
+</view>
+<!-- <textarea class='text' bindinput="input" placeholder="分享动态" auto-height/> -->
+<view class='_class'>
+  <textarea  class='topiccontent' bindinput='SetContent' placeholder='请输入内容...' value='{{content}}'/>
+</view>
+<view class="button-sp-area">
+  <button class='weui-btn' type="primary" plain="true" name='submit'  bindtap='releaseAnnouncement'>发布</button>
+</view>
+

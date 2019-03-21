@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/firstpage/firstpage",
     "pages/moments/moments",
     "pages/publish/publish",
@@ -18,19 +18,27 @@
     "pages/editmsg/editmsg",
     "pages/index/index",
     "pages/details/details",
-    "pages/register/register"
+    "pages/register/register",
+    "pages/thisuser/thisuser",
+    "pages/notice/notice",
+    "pages/participants/participants",
+    "pages/notice/noticdetail/noticdetail",
+    "pages/notice/editdetail/editdetail",
+    "pages/notice/releasenotic/releasenotic",
+    "pages/followpeople/followme/followme",
+    "pages/followpeople/myfollow/myfollow"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/firstpage/firstpage",
-        "iconPath":"image/firstpage.png",
+        "iconPath": "image/firstpage.png",
         "selectedIconPath": "image/fpon.png",
         "text": "首页"
       },
@@ -45,21 +53,18 @@
         "iconPath": "image/publish.png",
         "selectedIconPath": "image/pshon.png",
         "text": "发布"
-       
       },
       {
         "pagePath": "pages/msgaboutme/msgaboutme",
         "iconPath": "image/aboutme.png",
         "selectedIconPath": "image/amon.png",
         "text": "与我相关"
-        
       },
       {
         "pagePath": "pages/usercenter/usercenter",
         "iconPath": "image/usercenter.png",
         "selectedIconPath": "image/ucon.png",
         "text": "个人中心"
-      
       }
     ]
   }
