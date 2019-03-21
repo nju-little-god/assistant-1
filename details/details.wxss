@@ -1,0 +1,180 @@
+/* pages/details/details.wxss */
+
+
+
+.header {
+    display: flex;
+}
+
+/*标题*/
+.title_title {
+    color: #333;
+    font-size: 20px;
+    margin: 10px 10px;
+    float: left;
+}
+.title{
+  font-size: 16px;
+  margin-left: 10px;
+  justify-content: space-between;
+}
+.iscollection{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width:160rpx;
+  height: 65rpx;
+  text-align: center;
+  line-height: 65rpx;
+  font-size: 30rpx;
+  background-color: #09bb07;
+  color: white;
+  border: none;
+}
+.notice{
+  position: absolute;
+  /* margin-left: 100px; */
+  top: 60px;
+  right: 10px;
+  width:160rpx;
+  height: 65rpx;
+  text-align: center;
+  line-height: 65rpx;
+  font-size: 30rpx;
+  background-color: #09bb07;
+  color: white;
+  border: none;
+}
+
+.time{
+  font-size: 30rpx;
+  color: gray;
+  /* margin-left:180px; */
+  
+}
+
+.status{
+  margin-top: 10px;
+  margin-left: 10px;
+  right: 10px;
+  color: #0068C4;
+
+}
+
+.join{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width:600rpx;
+  background-color: #09bb07;
+  color: white;
+  border: none;
+}
+.message_list{
+  background-color: #f2f2f2;
+  padding-left: 8rpx;
+  padding-right: 8rpx;
+}
+.plan_list{
+margin-top: 25rpx;
+}
+.wa-item-ava{
+  padding-left:60px;
+  min-height: 40px;
+}
+.wa-item-ava .item-img-round{
+  position:absolute;
+  top:10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.wa-item-thumbnail-left{
+  padding-left:100px;
+  min-height: 100px;
+}
+.wa-list{
+  width:100%;
+  position:relative;
+}
+.wa-item{
+  width: 100%;
+  border: 1px solid #ddd;
+  margin: -1px 0;  
+  font-size: 16px;
+  display: block;
+  color: #444;
+  padding:10px;
+  height: 40px;
+  box-sizing: border-box;
+  position:relative;
+  background-color: #fff;
+}
+.operation{
+  float: right;
+  margin-bottom: 45rpx;
+}
+
+.operation .flex-item{
+  margin-right: 40rpx;
+  display: inline-block;
+}
+
+.operation image{
+  display: block;
+  margin: 0 auto;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.divLine{
+  clear: both;
+  background: #E0E3DA;
+  width: 100%;
+  height: 3rpx;
+}
+
+.detail_header {
+  display: flex;
+}
+
+.detail_header image{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+  float: left;
+  border-radius: 40rpx;
+  overflow: hidden;
+}
+
+.answer-actions{
+  display: flex;
+  margin-left: 10px;
+  line-height: 2em;
+  justify-content: space-between;
+  width: 690rpx;
+  padding: 10rpx 0  0;
+  color: #a0acac;
+}
+
+.answer-actions view{
+  display: inline-block;
+  vertical-align: text-bottom;
+  padding: 0 10rpx 0 0;
+  font-size: 35rpx;
+  margin-right: 20rpx;
+}
+.biao
+ {
+   width: 50rpx;
+   height:40rpx;
+   overflow:hidden;
+   margin-top:-32rpx;
+   margin-left:680rpx;
+   margin-bottom:20rpx;
+ }
+  .baseimg
+ {
+   width:100%;
+   height:100%;
+ }

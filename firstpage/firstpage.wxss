@@ -1,0 +1,173 @@
+.serach{
+    margin-top: 18rpx;
+    margin-left: 25rpx;
+    margin-right: 25rpx;
+    padding-left: 25rpx;
+    background-color: #F3F3F3;
+    border-radius: 12rpx;
+
+}
+.serach_view_show{
+    display: block;
+    color: #8f5c5c;
+    padding-left: 285rpx;
+    padding-top: 30rpx;
+    padding-bottom: 15rpx;
+    font-size: 30rpx;
+    background-color: #F3F3F3;
+    border-radius: 12rpx;
+}
+.message_list{
+  background-color: #f2f2f2;
+  padding-left: 8rpx;
+  padding-right: 8rpx;
+}
+.plan_list{
+margin-top: 25rpx;
+}
+.wa-item-ava{
+  padding-left:60px;
+  min-height: 60px;
+}
+.wa-item-ava .item-img-round{
+  position:absolute;
+  top:10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.wa-item-thumbnail-left{
+  padding-left:100px;
+  min-height: 30px;
+}
+.wa-list{
+  width:100%;
+  position:relative;
+}
+.wa-item{
+  width: 100%;
+  border: 1px solid #ddd;
+  margin: -1px 0;  
+  font-size: 16px;
+  display: block;
+  color: #444;
+  padding:10px;
+  height: 40px;
+  box-sizing: border-box;
+  position:relative;
+  background-color: #fff;
+}
+
+
+
+
+
+.search{
+  position: fixed;
+  top: 0px;
+  width: 735rpx;
+  height: 65rpx;
+  padding: 12.5rpx 0 12.5rpx 15rpx;
+  background: #2A8CE5;
+}
+
+.search-left{
+  flex: 8;
+  background: #4EA3E7;
+  text-align: left;
+}
+
+.search-left input{
+  display: inline-block;
+  height: 65rpx;
+  font-size: 26rpx;
+}
+
+.search-placeholder{
+  color: #8CCEFD;
+  line-height: 20rpx;
+}
+
+.search .search-left image{
+  display: inline-block;
+  width: 35rpx;
+  height: 35rpx;
+  padding: 15rpx 15rpx 15rpx 20rpx;
+}
+
+.search-right{
+  display: flex;
+}
+
+.search-right .text{
+  color: white;
+  font-size: 34rpx;
+  margin-top: 10rpx;
+}
+
+.search .search-right{
+  flex: 2;
+}
+
+.search .search-right image{
+  width: 45rpx;
+  height: 45rpx;
+  padding: 10rpx;
+}
+
+.list{
+  margin-top: 100rpx
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.title {
+  padding-top: 2px;
+  background-color: white;
+  font-size: 16px;
+  color: #333;
+  margin: 5px 0;
+  line-height: 130%;
+}
+
+.time {
+  font-size: 14px;
+  color: #999;
+  margin: 3px 0;
+}
+
+.loading-indicator {
+    text-align: center;
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+.answer-actions{
+  display:flex;
+  justify-content:space-between;
+  width: 100%;
+  padding: 10rpx 0  0;
+  color: #888888;
+  font-size: 20px;
+}
+
+.answer-actions view{
+  
+  display: inline-block;
+  vertical-align: text-bottom;
+  padding: 0 10rpx 0 0;
+  font-size: 13px;
+  margin-right: 20rpx;
+}
+
+.plan_list{
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}

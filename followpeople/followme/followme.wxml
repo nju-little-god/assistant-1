@@ -1,0 +1,16 @@
+<!--pages/followpeople/followme/followme.wxml-->
+
+<block wx:for="{{userListInfo}}">
+  <navigator url='../../thisuser/thisuser'>
+    <view class="weui_cell">
+      <!-- <view class="weui_cell_hd">
+        <image src="{{item.icon}}"></image>
+      </view> -->
+      <view class="weui_cell_bd">
+        <view class="weui_cell_bd_p"> {{item.nickname}} </view>
+      </view>
+      <view wx:if="{{item.isunread}}" class="badge">{{item.unreadNum}}</view>
+      <view class="with_arrow">{{item.follow_time}}</view>
+    </view>
+  </navigator>
+</block>

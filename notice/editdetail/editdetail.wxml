@@ -1,0 +1,17 @@
+<!--pages/notice/editdetail/editdetail.wxml-->
+<navigator>
+  <button class='editornotice'>完成</button>
+  </navigator>
+<view class="page">
+    <view class="page__hd">
+        <input class='page__title' bindinput='topictitle'  value='{{title}}'>{{title}}</input>
+    </view>
+      <view class="container">
+      <!-- 分割线 -->
+      <view class="divLine"></view>
+    </view>
+    <textarea  class='content' bindinput='bindTextAreaBlur' value='{{content}}' />
+    <!-- <view class='content'>{{content}}</view> -->
+</view>
+
+<!-- <button class='editornotice'>编辑公告</button> -->

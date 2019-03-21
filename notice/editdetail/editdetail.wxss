@@ -1,0 +1,29 @@
+/* pages/notice/editdetail/editdetail.wxss */
+page{
+    background-color: #FFFFFF;
+}
+image{
+    margin: 4px 0;
+}
+.divLine{
+ background: #E0E3DA;
+ width: 95%;
+ margin-left: 5px;
+ height: 5rpx;
+}
+.content{
+  margin-left: 15px;
+  width: 90%;
+  font-size: 15px;
+}
+.editornotice{
+  margin-top: 10px;
+  margin-right: 20px;
+  /* margin-bottom: 20px; */
+  width:150rpx;
+  height: 35px;
+  font-size: 15px;
+  background-color: #09bb07;
+  color: white;
+  border: none;
+}
