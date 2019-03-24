@@ -1,0 +1,109 @@
+/* pages/notice/releasenotic/releasenotic.wxss */
+page{
+    background-color: #FFFFFF;
+}
+image{
+    margin: 4px 0;
+}
+.button-sp-area{
+    margin-top: 50px;
+    margin-block-end: 30px;
+    margin:  0 auto;
+    padding-top: 15px;
+    width: 60%;
+}
+.button_add{
+    /* margin-top: 100rpx; */
+    margin-left: 10px;
+    margin-block-end: 30px;
+    position: left;
+    padding-top: 15px;
+    font-size: 50px;
+    width: 100px;
+    height: 100px;
+    line-height: 1.3em;
+}
+
+.image{
+ width:31%;
+ height: 100px;
+ padding: 2px
+}
+.moment_img{
+ width: 98px;
+ height: 98px;
+}
+.image_content{
+ width: 100%;
+ display: flex;
+ flex-wrap: wrap;
+ margin-bottom: 20px
+}
+
+.topictitle{
+  margin-left: 10px;
+  color: #666;
+  font-size: 20px;
+  line-height: 2em;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 5px
+}
+.topiccontent{
+  margin-left: 10px;
+  margin-top: 10px;
+  color: #666;
+  font-size: 15px;
+  line-height: 2em;
+  width: 100%;
+  /* margin-bottom: 20px; */
+  padding: 5px
+}
+
+.divLine{
+ background: #E0E3DA;
+ width: 90%;
+ margin-left: 10px;
+ height: 5rpx;
+}
+
+.address
+{
+    height:120rpx;
+    background:#fff;
+    border-bottom:1px solid #ccc;
+}
+
+.xian
+{
+    width: 90%;
+    height: 20rpx;
+    border-bottom: 1px solid #ccc;
+    margin-left:70rpx;
+}
+.biao
+{
+    width:60rpx;
+    height:60rpx;
+    margin-left:50rpx;
+    margin-top:20rpx;
+}
+
+.weizhi
+{
+     position: absolute;
+     width:500rpx;
+     /*border:1px solid red;*/
+     font-size: 10pt;
+     font-weight: 600;
+     margin-top: 35rpx;
+     margin-left:20rpx;
+}
+.jiantou
+{
+    position: absolute;
+    width:35rpx;
+    height:35rpx;
+    margin-top: 40rpx;
+     margin-left:550rpx;
+}

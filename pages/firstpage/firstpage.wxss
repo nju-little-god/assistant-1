@@ -39,7 +39,7 @@ margin-top: 25rpx;
 }
 .wa-item-thumbnail-left{
   padding-left:100px;
-  min-height: 100px;
+  min-height: 30px;
 }
 .wa-list{
   width:100%;
@@ -127,16 +127,18 @@ margin-top: 25rpx;
 }
 
 .title {
+  padding-top: 2px;
+  background-color: white;
   font-size: 16px;
   color: #333;
-  margin: 10px 0;
+  margin: 5px 0;
   line-height: 130%;
 }
 
 .time {
   font-size: 14px;
   color: #999;
-  margin: 10px 0;
+  margin: 3px 0;
 }
 
 .loading-indicator {
@@ -146,15 +148,26 @@ margin-top: 25rpx;
 }
 
 .answer-actions{
-  width: 690rpx;
+  display:flex;
+  justify-content:space-between;
+  width: 100%;
   padding: 10rpx 0  0;
-  color: #a0acac;
+  color: #888888;
+  font-size: 20px;
 }
 
 .answer-actions view{
+  
   display: inline-block;
   vertical-align: text-bottom;
   padding: 0 10rpx 0 0;
-  font-size: 24rpx;
+  font-size: 13px;
   margin-right: 20rpx;
+}
+
+.plan_list{
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }

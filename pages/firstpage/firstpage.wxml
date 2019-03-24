@@ -15,29 +15,25 @@
     <!-- 日期 -->
     <view class="time">{{schDtls.execute_time}}</view>
   </view>
-  
     <view class="wa-item wa-item-thumbnail-left">
       <text class="icon-right ion-chevron-right"></text>
-      <!-- <image class="item-img" src="/image/user.jpg"></image> -->
       {{schDtls.title}}
     </view>
     <view class="wa-item wa-item-thumbnail-left">
       <text class="icon-right ion-chevron-right"></text>
-      <!-- <image class="item-img" src="/image/user.jpg"></image> -->
       {{schDtls.describe}}
     </view>
     <view class="wa-item wa-item-thumbnail-left">
       <text class="icon-right ion-chevron-right"></text>
-      <!-- <image class="item-img" src="/image/user.jpg"></image> -->
       {{schDtls.status}}
     </view>
     <view class="answer-actions">
-          <view class="like">
-            <a>{{schDtls.likeNun}} 赞同 </a>
+          <view class="like" >
+            点赞数：{{schDtls.likeNum}}
           </view>
           <view class="comments">
-            <a>{{schDtls.commentNum}} 评论 </a>
+            评论数量：{{schDtls.commentNum}}
           </view>
-        </view>
+    </view>
 </navigator>
 </view>

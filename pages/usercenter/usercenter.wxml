@@ -31,6 +31,20 @@
     </view>
     </view>
   <view class="my">
+   <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+      </view>
+      <view class="myitem-name flex-item">
+        <navigator url='../followpeople/myfollow/myfollow'>我关注的人</navigator>
+      </view>
+    </view>
+     <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+      </view>
+      <view class="myitem-name flex-item">
+        <navigator url='../followpeople/followme/followme'>关注我的人</navigator>
+      </view>
+    </view>
     <view class="my-item flex-wrp">
       <view class="myitem-icon flex-item" >
       </view>
@@ -45,20 +59,7 @@
         <navigator url='../userdetails/trajoinedbyme/trajoinedbyme'>我参与的出游</navigator>
       </view>
     </view>
-    <view class="my-item flex-wrp">
-      <view class="myitem-icon flex-item" >
-      </view>
-      <view class="myitem-name flex-item">
-        <navigator url='../userdetails/topicbyme/topicbyme'>我发布的帖子</navigator>
-      </view>
-    </view>
-    <view class="my-item flex-wrp">
-      <view class="myitem-icon flex-item" >
-      </view>
-      <view class="myitem-name flex-item">
-        <navigator url='../userdetails/trareviewbyme/trareviewbyme'>我发布的心得</navigator>
-      </view>
-    </view>
+
     <view class="my-item flex-wrp">
       <view class="myitem-icon flex-item" >
         
@@ -67,6 +68,16 @@
         <navigator url='../userdetails/trasavebyme/trasavebyme'>我收藏的出游</navigator>
       </view>
     </view>
+    
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+      </view>
+      <view class="myitem-name flex-item">
+        <navigator url='../userdetails/topicbyme/topicbyme'>我发布的帖子</navigator>
+      </view>
+    </view>
+  
+    
     <view class="my-item flex-wrp">
       <view class="myitem-icon flex-item" >
         
