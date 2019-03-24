@@ -7,6 +7,9 @@ Page({
    */
 
   data: {
+    biao_src:'../../image/biao.png',
+    isTakePart: 0,
+    isCollection:0,
     sid: 1,
     schedule:{
       nickname: '路人甲',
@@ -54,7 +57,105 @@ Page({
       }
     })
   },
+  collectSchedule:function(){
+    this.setData({
+      isCollection:1
+    })
+    wx.request({
+      url: app.baseUrl + '/schedule/collectSchedule?sid=1',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "sessionKey": "登录时获取的sessionKey"
+      },
+      data: {
+      },
+      success(res){
+        console.log(res)
+        if(res.data.message==1){
+          console.log('收藏出游计划成功')
+          wx.showToast({
+            title: res.data.message,
+            icon:'success',
+            duration:2000
+          })
+          setTimeout(function () {
+            wx.navigateBack({
+
+            })
+          }, 2000)
+        }
+      }
+    })
+
+  },
+  discollectSchedule:function(){
+    this.setData({
+      isCollection:0
+    })
+    wx.request({
+      url: app.baseUrl + '/schedule/discollectSchedule?sid=1',
+      method: "GET",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "sessionKey": "登录时获取的sessionKey"
+      },
+      data: {
+      },
+      success(res){
+        console.log(res)
+        if(res.data.message==1){
+          console.log("取消收藏计划成功")
+          wx.showToast({
+            title: res.data.message,
+            duration: 2000
+          })
+          setTimeout(function () {
+            wx.navigateBack({
+
+            })
+          }, 2000)
+        }
+      }
+    })
+
+  },
+  quitSchedule:function(){
+    this.setData({
+      isTakePart:0
+    })
+    wx.request({
+      url: app.baseUrl + "/schedule/quitSchedule?sid=1",
+      method: "",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "sessionKey": "登录时获取的sessionKey"
+      },
+      data: {
+      },
+      success(res){
+        console.log(res)
+        if(res.data.message==1){
+          console.log("您已退出")
+          wx.showToast({
+            title: res.data.message,
+            icon:'success',
+            duration:2000
+          })
+          setTimeout(function () {
+            wx.navigateBack({
+
+            })
+          }, 2000)
+        }
+
+      }
+    })
+
+  },
   partakeSchedule: function () {
+    this.setData({
+      isTakePart:1
+    })
     wx.request({
       url: app.baseUrl + "/schedule/partakeSchedule?sid=" + this.data.sid,
       method: "GET",

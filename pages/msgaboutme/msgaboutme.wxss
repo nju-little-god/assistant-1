@@ -1,4 +1,5 @@
 /* pages/msgaboutme/msgaboutme.wxss */
+@import "../../import.wxss";
 page{
     background-color: #FFFFFF;
 }

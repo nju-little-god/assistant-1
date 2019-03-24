@@ -17,7 +17,20 @@ Page({
       describe: "简介",
       likeNum: "点赞数量",
       commentNum: "评论数量"
-    }],
+    },
+      {
+        sid: 1,
+        uid: 1,
+        nickname: "William",
+        title: "计划标题",
+        target: "计划目的地",
+        execute_time: "出发时间",
+        status: "当前状态",
+        describe: "简介",
+        likeNum: "点赞数量",
+        commentNum: "评论数量"
+      }],
+    
   },
 
   planDetails: function () {

@@ -1,0 +1,17 @@
+<!--pages/notice/noticdetail/noticdetail.wxml-->
+<navigator url='../../notice/editdetail/editdetail'>
+  <button class='editornotice'>编辑</button>
+  </navigator>
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">{{title}}</view>
+        <view class="page__desc">{{release_time}}</view>
+    </view>
+      <view class="container">
+      <!-- 分割线 -->
+      <view class="divLine"></view>
+    </view>
+    <view class='content'>{{content}}</view>
+</view>
+
+<!-- <button class='editornotice'>编辑公告</button> -->

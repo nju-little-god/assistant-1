@@ -1,33 +1,74 @@
     <!--pages/publishdetails/plan/plan.wxml-->
-<view class='dtls'>标题：
-<input class='plantitle' bindinput='setTitle'>{{title}}</input>
+  <view class='dtls'> 标题：
+  <input class='_class' bindinput='setTitle'>{{title}}</input>
+  </view>
+  <view class='dtls'> 集合时间：
+  <!-- <input class='plantime' bindinput='setExe_time'>{{execute_time}}</input> -->
+    <picker class='_class' mode="date" value="{{execute_date}}" start="1999-01-01" end="2999-12-12" bindchange="setExe_date">
+    请选择日期: {{execute_date}}
+    </picker>
+    <picker class='_class' mode="time" value="{{execute_time}}" start="00:00" end="24:00" bindchange="setExe_time">
+    请选择时间: {{execute_time}}
+    </picker>
+    
+  </view>
+  <view class='dtls'> 结束时间：
+  <!-- <input class='endtime' bindinput='setEnd_time'>{{end_time}}</input> -->
+    <picker class='_class' mode="date" value="{{end_date}}" start="1999-01-01" end="2999-12-12" bindchange="setEnd_date">
+    请选择日期: {{end_date}}
+    </picker>
+    <picker class='_class' mode="time" value="{{end_time}}" start="00:00" end="24:00" bindchange="setEnd_time">
+    请选择时间: {{end_time}}
+    </picker>
+    
+  </view>
+  <view  class='dtls'> 出游地点：
+    <picker mode="region" bindchange="setTarget_region" value="{{target_region}}" custom-item="{{customItem}}">
+    <view class="_class">
+      所在地区：{{target_region[0]}}，{{target_region[1]}}，{{target_region[2]}}
+    </view>
+  </picker>
+   详细地点：<input class='_class' bindinput='setTarget_detail'>{{target_detail}}</input>
+  </view>
+  <view class='dtls'> 计划人数：
+  <input class='_class' type='number' bindinput='setNum'>{{partookNum}}</input>
+  </view>
+  <view class='dtls'> 集合地点：
+    <picker mode="region" bindchange="setMeet_place_region" value="{{meet_place_region}}" custom-item="{{customItem}}">
+      <view class="_class">
+        所在地区：{{meet_place_region[0]}}，{{meet_place_region[1]}}，{{meet_place_region[2]}}
+      </view>
+    </picker>
+  详细地点：<input class='_class' bindinput='setMeet_place_detail'>{{meet_place_detail}}</input>
+  </view>
+  <view class='dtls'> 报名开始时间：
+  <!-- <input class='gatherplace' bindinput='setStart_time'>{{recruit_start_time}}</input> -->
+    <picker class='_class' mode="date" value="{{recruit_start_date}}" start="1999-01-01" end="2999-12-12" bindchange="setStart_date">
+    请选择日期: {{recruit_start_date}}
+    </picker>
+    <picker class='_class' mode="time" value="{{recruit_start_time}}" start="00:00" end="24:00" bindchange="setStart_time">
+    请选择时间: {{recruit_start_time}}
+    </picker>
+    
+  </view>
+  <view class='dtls'> 报名结束时间：
+  <!-- <input class='gatherplace' bindinput='setReEnd_time'>{{recruit_end_time}}</input> -->
+    <picker class='_class' mode="date" value="{{recruit_end_date}}" start="1999-01-01" end="2999-12-12" bindchange="setReEnd_date">
+    请选择日期: {{recruit_end_date}}
+    </picker>
+    <picker class='_class' mode="time" value="{{recruit_end_time}}" start="00:00" end="24:00" bindchange="setReEnd_time">
+    请选择时间: {{recruit_end_time}}
+    </picker>
+  </view>
+  <view class='dtls'> 详情：
+  <textarea class='_class' bindinput='setDetails' value='{{content}}'></textarea>
+  </view>
+  <view class="button-sp-area">
+    <button class="weui-btn" type="primary" plain="true" bindtap='createSchedule'>
+      发布
+    </button>
 </view>
-<view class='dtls'>集合时间：
-<input class='plantime' bindinput='setExe_time'>{{execute_time}}</input>
-</view>
-<view class='dtls'>结束时间：
-<input class='endtime' bindinput='setEnd_time'>{{end_time}}</input>
-</view>
-<view  class='dtls'>出游地点：
-<input class='planplace' bindinput='setTarget'>{{target}}</input>
-</view>
-<view class='dtls'>计划人数：
-<input class='plannum' bindinput='setNum'>{{partookNum}}</input>
-</view>
-<view class='dtls'>集合地点：
-<input class='gatherplace' bindinput='setMeet_place'>{{meet_place}}</input>
-</view>
-<view class='dtls'>报名开始时间：
-<input class='gatherplace' bindinput='setStart_time'>{{recruit_start_time}}</input>
-</view>
-<view class='dtls'>报名结束时间：
-<input class='gatherplace' bindinput='setReEnd_time'>{{recruit_end_time}}</input>
-</view>
-<view class='dtls'>详情：
-<textarea class='plandetails' bindinput='setDetails'>{{content}}</textarea>
-</view>
-<view class="button-sp-area">
-        <button class="weui-btn" type="primary" plain="true" bindtap='createSchedule'>发布</button>
+<view class='end'>1
 </view>
 
 
