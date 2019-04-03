@@ -1,18 +1,18 @@
 <!--pages/notice/notice.wxml-->
-<block wx:for="{{announcementList}}">
-	<navigator url='../notice/noticdetail/noticdetail'>
+<block wx:for="{{announcementList}}" wx:for-item="item">
+	<navigator url='../notice/noticdetail/noticdetail?recordId={{item.recordId}}'>
     <view class="weui_cell">
       <!-- <view class="weui_cell_hd">
         <image src="{{item.icon}}"></image>
       </view> -->
       <view class="weui_cell_bd">
-        <view class="weui_cell_bd_p"> {{item.title}} </view>
+        <view class="weui_cell_bd_p"> {{item.announcement_title}} </view>
       </view>
       <view wx:if="{{item.isunread}}" class="badge">{{item.unreadNum}}</view>
       <view class="with_arrow">{{item.release_time}}</view>
     </view>
   </navigator>
 </block>
- <navigator url='../notice/releasenotic/releasenotic'>
+ <navigator url='../notice/releasenotic/releasenotic?sid={{sid}}'>
   <button class='addnotice' >发布公告</button>
  </navigator>

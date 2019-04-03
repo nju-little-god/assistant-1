@@ -1,7 +1,7 @@
 <!--pages/followpeople/myfollow/myfollow.wxml-->
 <!-- <block wx:for="{{userListInfo}}"> -->
 <block wx:for="{{follow_list}}">
-  <navigator url='../../thisuser/thisuser'>
+  <navigator url='../../thisuser/thisuser?uid={{item.uid}}'>
     <view class="weui_cell">
       <!-- <view class="weui_cell_hd">
         <image src="{{item.icon}}"></image>

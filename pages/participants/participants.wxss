@@ -27,6 +27,7 @@
  
 .weui_cell_bd_p {
 	font-size: 14px;
+  margin-left: 20px;
 	color: #939393;
 }
  

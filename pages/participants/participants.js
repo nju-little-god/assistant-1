@@ -1,37 +1,30 @@
 // pages/participants/participants.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    sid: "",
     userInfo: {},
     userListInfo: [{
       icon: '../../dist/images/iconfont-dingdan.png',
-      text: '参与人1_ID',
+      nickname: '参与人1_ID',
       isunread: false,
-      unreadNum: 2
+      partook_time: 2
     }, {
       icon: '../../dist/images/iconfont-card.png',
-      text: '参与人2_ID',
+      nickname: '参与人2_ID',
       isunread: false,
-      unreadNum: 2
+      partook_time: 2
     }, {
       icon: '../../dist/images/iconfont-icontuan.png',
-      text: '参与人3_ID',
+      nickname: '参与人3_ID',
       // 是否有红点
       isunread: false,
-      unreadNum: 1
-    }, {
-      icon: '../../dist/images/iconfont-shouhuodizhi.png',
-      text: '参与人4_ID'
-    }, {
-      icon: '../../dist/images/iconfont-kefu.png',
-      text: '参与人5_ID'
-    }, {
-      icon: '../../dist/images/iconfont-help.png',
-      text: '参与人6_ID'
-    }]
+      partook_time: 1
+    },]
 
   },
 
@@ -39,13 +32,41 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      sid: options.sid
+    })
     var that = this
     //调用应用实例的方法获取全局数据
-    app.getUserInfo(function (userInfo) {
-      //更新数据
-      that.setData({
-        userInfo: userInfo
-      })
+    this.getSchedulePartookList()
+    //   app.getUserInfo(function (userInfo) {
+    //     //更新数据
+    //     that.setData({
+    //       userInfo: userInfo
+    //     })
+    //   })
+  },
+  getSchedulePartookList: function () {
+    var that = this
+    wx.request({
+      url: app.baseUrl + '/schedule/getSchedulePartookList?sid=' + this.data.sid,
+      method: "GET",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "sessionKey": app.globalData.sessionKey
+      },
+      data: {
+      },
+      success(res) {
+        let dataList = res.data.data;
+        dataList.forEach((user) => {
+          user[4] = user[4].substring(0, 10); //要截取字段的字符串
+        })
+        that.setData({
+          userListInfo: res.data.data
+        })
+
+        console.log(that.data)
+      }
     })
   },
 

@@ -81,7 +81,7 @@
 }
 .msg_details{
   color: #bababa;
-  width: 50%;
+  width: 80%;
   background-color: #fff;
   min-height: 50rpx;
 }

@@ -1,5 +1,5 @@
 // pages/details/details.js
-const app=getApp()
+const app = getApp()
 Page({
 
   /**
@@ -7,11 +7,11 @@ Page({
    */
 
   data: {
-    biao_src:'../../image/biao.png',
+    biao_src: '../../image/biao.png',
     isTakePart: 0,
-    isCollection:0,
+    isCollection: 0,
     sid: 1,
-    schedule:{
+    schedule: {
       nickname: '路人甲',
       title: '总统府一日游',
       start_time: "发布时间",
@@ -24,7 +24,7 @@ Page({
       end_time: "结束时间",
       content: "出游计划描述",
       uid: "发起人id",
-      partookNum: "参与人数",
+      partakeNum: "参与人数",
       announcementNum: "公告数量"
     }
   },
@@ -33,7 +33,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      sid:options.sid
+      sid: options.sid
     })
     this.getScheduleList()
   },
@@ -57,26 +57,27 @@ Page({
       }
     })
   },
-  collectSchedule:function(){
+  collectSchedule: function () {
     this.setData({
-      isCollection:1
+      isCollection: 1
     })
     wx.request({
-      url: app.baseUrl + '/schedule/collectSchedule?sid=1',
+      url: app.baseUrl + '/schedule/collectSchedule?sid='+this.data.sid,
+      method: "GET",
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
-        "sessionKey": "登录时获取的sessionKey"
+        "sessionKey": app.globalData.sessionKey
       },
       data: {
       },
-      success(res){
+      success(res) {
         console.log(res)
-        if(res.data.message==1){
+        if (res.data.message == 1) {
           console.log('收藏出游计划成功')
           wx.showToast({
             title: res.data.message,
-            icon:'success',
-            duration:2000
+            icon: 'success',
+            duration: 2000
           })
           setTimeout(function () {
             wx.navigateBack({
@@ -88,22 +89,22 @@ Page({
     })
 
   },
-  discollectSchedule:function(){
+  discollectSchedule: function () {
     this.setData({
-      isCollection:0
+      isCollection: 0
     })
     wx.request({
-      url: app.baseUrl + '/schedule/discollectSchedule?sid=1',
+      url: app.baseUrl + '/schedule/discollectSchedule?sid='+this.data.sid,
       method: "GET",
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
-        "sessionKey": "登录时获取的sessionKey"
+        "sessionKey": app.globalData.sessionKey
       },
       data: {
       },
-      success(res){
+      success(res) {
         console.log(res)
-        if(res.data.message==1){
+        if (res.data.message == 1) {
           console.log("取消收藏计划成功")
           wx.showToast({
             title: res.data.message,
@@ -119,27 +120,27 @@ Page({
     })
 
   },
-  quitSchedule:function(){
+  quitSchedule: function () {
     this.setData({
-      isTakePart:0
+      isTakePart: 0
     })
     wx.request({
-      url: app.baseUrl + "/schedule/quitSchedule?sid=1",
-      method: "",
+      url: app.baseUrl + "/schedule/quitSchedule?sid"+this.data.sid,
+      method: "GET",
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
-        "sessionKey": "登录时获取的sessionKey"
+        "sessionKey": app.globalData.sessionKey
       },
       data: {
       },
-      success(res){
+      success(res) {
         console.log(res)
-        if(res.data.message==1){
+        if (res.data.message == 1) {
           console.log("您已退出")
           wx.showToast({
             title: res.data.message,
-            icon:'success',
-            duration:2000
+            icon: 'success',
+            duration: 2000
           })
           setTimeout(function () {
             wx.navigateBack({
@@ -154,7 +155,7 @@ Page({
   },
   partakeSchedule: function () {
     this.setData({
-      isTakePart:1
+      isTakePart: 1
     })
     wx.request({
       url: app.baseUrl + "/schedule/partakeSchedule?sid=" + this.data.sid,
@@ -165,20 +166,20 @@ Page({
       },
       data: {
       },
-      success(res){
+      success(res) {
         console.log(res)
-        if(res.data.result==1){
+        if (res.data.result == 1) {
           console.log("加入成功")
           wx.showToast({
             title: res.data.message,
             icon: 'success',
             duration: 2000
           })
-          setTimeout(function(){
+          setTimeout(function () {
             wx.navigateBack({
-              
+
             })
-          },2000)
+          }, 2000)
         }
       }
     })

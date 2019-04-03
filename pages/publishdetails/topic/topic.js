@@ -1,10 +1,11 @@
+const app = getApp()
 Page({
   data: {
-    img_url: [],
+    pic_link: [],
     content: '',
     moment_src:'../../../image/add.png',
     addressData: null,
-    addRessName:false,
+    location:false,
   },
   onLoad: function (options) {
   },
@@ -32,26 +33,76 @@ Page({
             })
           }
           //把每次选择的图push进数组
-          let img_url = that.data.img_url;
+          let pic_link = that.data.pic_link;
           for (let i = 0; i < res.tempFilePaths.length; i++) {
-            img_url.push(res.tempFilePaths[i])
+            pic_link.push(res.tempFilePaths[i])
           }
           that.setData({
-            img_url: img_url
+            pic_link: pic_link
           })
         }
       }
     })
   },
   //发布按钮事件
-  send: function () {
-    var that = this;
+  createArticle: function () {
     var user_id = wx.getStorageSync('userid')
     wx.showLoading({
       title: '上传中',
     })
-    that.img_upload()
-  }, bindAddress: function () {
+    // that.img_upload()
+    wx.request({
+      url: app.baseUrl +'/article/createArticle',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "sessionKey": app.globalData.sessionKey
+      },
+      data: {
+        title: this.data.title,
+        content: this.data.content,
+        pic_link: this.data.pic_link,
+        location: this.data.location     
+         },
+      success(res){
+        console.log('发布成功')
+        wx.showToast({
+          title: res.data.message,
+          icon: 'success',
+          duration: 2000
+        })
+        setTimeout(function () {
+          wx.navigateBack({
+            delta: 2
+          })
+        }, 2000)
+
+      }
+    })
+
+  }, 
+  setTitle:function(event){
+    this.setData({
+      title:event.detail.value
+    })
+  },
+  setContent: function (event){
+    this.setData({
+      content:event.detail.value
+    })
+  },
+  setPic_link:function(event){
+    this.setData({
+      pic_link:event.detail.value
+    })
+
+  },
+  setLocation:function(event){
+    this.setData({
+      location:evevt.detail.value
+    })
+  },
+  bindAddress: function () {
     var that = this
 
     // 取消选择地理位置后获取当前人经纬度调用后台接口接收当前地理位置
@@ -60,7 +111,7 @@ Page({
         //console.log(lb)
         that.data.addressData = lb
         that.setData({
-          addRessName: lb.name
+          location: lb.name
         })
         //console.debug(that.data.addressData)  
       },
@@ -75,58 +126,54 @@ Page({
   },
 
   //图片上传
-  img_upload: function () {
-    let that = this;
-    let img_url = that.data.img_url;
-    let img_url_ok = [];
-    //由于图片只能一张一张地上传，所以用循环
-    for (let i = 0; i < img_url.length; i++) {
-      wx.uploadFile({
-        //路径填你上传图片方法的地址
-        url: 'http://wechat.homedoctor.com/Moments/upload_do',
-        filePath: img_url[i],
-        name: 'file',
-        formData: {
-          'user': 'test'
-        },
-        success: function (res) {
-          console.log('上传成功');
-          //把上传成功的图片的地址放入数组中
-          img_url_ok.push(res.data)
-          //如果全部传完，则可以将图片路径保存到数据库
-          if (img_url_ok.length == img_url.length) {
-            var userid = wx.getStorageSync('userid');
-            var content = that.data.content;
-            wx.request({
-              url: 'http://wechat.homedoctor.com/Moments/adds',
-              data: {
-                user_id: userid,
-                images: img_url_ok,
-                content: content,
-              },
-              success: function (res) {
-                if (res.data.status == 1) {
-                  wx.hideLoading()
-                  wx.showModal({
-                    title: '提交成功',
-                    showCancel: false,
-                    success: function (res) {
-                      if (res.confirm) {
-                        wx.navigateTo({
-                          url: '/pages/my_moments/my_moments',
-                        })
-                      }
-                    }
-                  })
-                }
-              }
-            })
-          }
-        },
-        fail: function (res) {
-          console.log('上传失败')
-        }
-      })
-    }
-  }
+  // img_upload: function () {
+  //   let that = this;
+  //   let img_url = that.data.img_url;
+  //   let img_url_ok = [];
+  //   //由于图片只能一张一张地上传，所以用循环
+  //   for (let i = 0; i < img_url.length; i++) {
+  //     wx.uploadFile({
+  //       //路径填你上传图片方法的地址
+  //       url: app.baseUrl + '/article/createArticle',
+  //       filePath: img_url[i],
+  //       name: 'file',
+  //       success: function (res) {
+  //         console.log('上传成功');
+  //         //把上传成功的图片的地址放入数组中
+  //         img_url_ok.push(res.data)
+  //         //如果全部传完，则可以将图片路径保存到数据库
+  //         if (img_url_ok.length == img_url.length) {
+  //           var content = that.data.content;
+  //           wx.request({
+  //             url: app.baseUrl + '/article/createArticle',
+  //             data: {
+      
+  //               pic_link: img_url_ok,
+              
+  //             },
+  //             success: function (res) {
+  //               if (res.data.status == 1) {
+  //                 wx.hideLoading()
+  //                 wx.showModal({
+  //                   title: '提交成功',
+  //                   showCancel: false,
+  //                   success: function (res) {
+  //                     if (res.confirm) {
+  //                       wx.navigateTo({
+  //                         url: '/pages/moments/moments',
+  //                       })
+  //                     }
+  //                   }
+  //                 })
+  //               }
+  //             }
+  //           })
+  //         }
+  //       },
+  //       fail: function (res) {
+  //         console.log('上传失败')
+  //       }
+  //     })
+  //   }
+  // }
 })

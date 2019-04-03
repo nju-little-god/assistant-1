@@ -6,14 +6,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    uid: "1",
-    nickname: "william",
-    college: "南京大学",
-    major: "软件学院",
-    sex: ['男', '女'],
+    sexType: ['男', '女'],
+    sex: "",
+    uid: "",
+    nickname: "",
+    college: "",
+    major: "",
+    sex: "",
     index: 0,
     describe: "",
-    entrance_time: "2017-06-01"
+    entrance_time: "",
   },
   backtomsg: function () {
     wx.redirectTo({
@@ -21,7 +23,7 @@ Page({
     })
 
   },
-  setSex: function (e) {
+  setIndex: function (e) {
     this.setData({
       index: e.detail.value
     })
@@ -37,14 +39,70 @@ Page({
    */
   onLoad: function (options) {
     console.log('onLoad')
+    var that = this
+    that.getMyInfo()
+    //调用应用实例的方法获取全局数据
+    // app.getUserInfo(function (userInfo) {
+    //   //更新数据
+    //   that.setData({
+    //     userInfo.nickname: userInfo.nickname,
+
+    //   })
+    // })
     //初始化的时候要将data里的数据设置好，尤其是uid；然后wxml文件里的内容要和data绑定
     {
 
     }
 
   },
+  //获取当前用户信息
+  getMyInfo: function () {
+    //console.log(app.globalData)
+    var that = this
+    wx.request({
+      url: app.baseUrl + '/getMyInfo',
+      method: "GET",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "sessionKey": app.globalData.sessionKey
+      },
+      success(res) {
+        console.log(res)
+        if (res.data.data.sex == "男") {
+          that.setData({
+            nickname: res.data.data.nickname,
+            uid: res.data.data.uid,
+            college: res.data.data.college,
+            sexType: ['男', '女'],
+            sex: res.data.data.sex,
+            index: 0,
+            major: res.data.data.major,
+            describe: res.data.data.describe,
+            entrance_time: res.data.data.entrance_time,
+          })
+        }
+        else {
+          that.setData({
+            nickname: res.data.data.nickname,
+            uid: res.data.data.uid,
+            college: res.data.data.college,
+            sexType: ['男', '女'],
+            sex: res.data.data.sex,
+            index: 1,
+            major: res.data.data.major,
+            describe: res.data.data.describe,
+            entrance_time: res.data.data.entrance_time,
+
+          })
+        }
+      }
+    })
+  },
+  //更新信息
   updateUserInfo: function () {
-    console.log(this.data.uid)
+    console.log(this.data.index)
+    console.log(this.data.sexType)
+    var that = this
     wx.request({
       url: app.baseUrl + "/user/updateUserInfo",
       method: "POST",
@@ -53,16 +111,32 @@ Page({
         "sessionKey": app.globalData.sessionKey
       },
       data: {
-        "uid": this.data.uid,
-        "sex": this.data.sex[index],
-        "nickname": this.data.nickname,
-        "college": this.data.college,
-        "major": this.data.major,
-        "describe": this.data.describe,
-        "entrance_time": this.data.entrence_time
+        "uid": that.data.uid,
+        "sex": that.data.sexType[that.data.index],
+        "nickname": that.data.nickname,
+        "college": that.data.college,
+        "major": that.data.major,
+        "describe": that.data.describe,
+        "entrance_time": that.data.entrance_time
       },
       success(res) {
         console.log(res)
+        if (res.data.result == 1) {
+          console.log("修改成功")
+          wx.showToast({
+            title: res.data.message,
+            icon: 'success',
+            duration: 2000
+          })
+          setTimeout(function () {
+            wx.navigateBack({
+              delta: 2
+            })
+          }, 2000)
+        }
+        wx.navigateBack({
+          delta: 1,
+        })
       }
     })
   },
@@ -73,6 +147,9 @@ Page({
     this.setData({ nickname: event.detail.value })
   },
   setSex: function (event) {
+    this.setData({ sexType: ['男', '女'] })
+  },
+  setIndex: function (event) {
     this.setData({ index: event.detail.value })
   },
   setMajor: function (event) {
@@ -83,53 +160,5 @@ Page({
   },
   setDescribe: function (event) {
     this.setData({ describe: event.detail.value })
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

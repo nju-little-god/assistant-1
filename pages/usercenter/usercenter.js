@@ -37,7 +37,7 @@ Page({
   },
   getMyInfo: function () {
     //console.log(app.globalData)
-    var that =this
+    var that = this
     wx.request({
       url: app.baseUrl + '/getMyInfo',
       method: "GET",
@@ -48,7 +48,7 @@ Page({
       success(res) {
         console.log(res)
         that.setData({
-          userInfo:res.data.data
+          userInfo: res.data.data
         })
       }
     })

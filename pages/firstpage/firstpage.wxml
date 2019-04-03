@@ -27,13 +27,6 @@
       <text class="icon-right ion-chevron-right"></text>
       {{schDtls.status}}
     </view>
-    <view class="answer-actions">
-          <view class="like" >
-            点赞数：{{schDtls.likeNum}}
-          </view>
-          <view class="comments">
-            评论数量：{{schDtls.commentNum}}
-          </view>
-    </view>
+
 </navigator>
 </view>

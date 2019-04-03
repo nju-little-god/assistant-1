@@ -20,7 +20,7 @@
 }
 .iscollection{
   position: absolute;
-  top: 10px;
+  top: 50px;
   right: 10px;
   width:160rpx;
   height: 65rpx;

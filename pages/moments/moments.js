@@ -1,93 +1,107 @@
 // pages/moments/moments.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    DataSource:[{
+    
+    animationData: {},
+    articleList:[{
       icon:'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3175633703,3855171020&fm=27&gp=0.jpg',
       title:'标题1',
       nickname:'用户1',
       content:'内容1',
-      resource: [
+      pic_link: [
         'http://img0.imgtn.bdimg.com/it/u=2277942808,1417432970&fm=27&gp=0.jpg',
         'http://img5.imgtn.bdimg.com/it/u=1504812505,3480403568&fm=27&gp=0.jpg',
         'http://img4.imgtn.bdimg.com/it/u=3456219059,4251129897&fm=27&gp=0.jpg',
         'http://img3.imgtn.bdimg.com/it/u=3912316188,1981132393&fm=27&gp=0.jpg'],
-      address:'地点1',
-      time:'时间1'
+      location:'地点1',
+      release_time:'时间1',
+      cz_flag: false, // 控制点赞评论按钮
+      cz_right: 0, // 点赞评论定位right
+      cz_top: 80, // 点赞评论定位top
+      dz_id: null, // 点赞评论ID
+      praiseFlag: false,
     },
       {
         icon: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3175633703,3855171020&fm=27&gp=0.jpg',
         title: '标题2',
         nickname: '用户2',
         content: '内容2',
-        resource: [
+        pic_link: [
           'http://img0.imgtn.bdimg.com/it/u=2277942808,1417432970&fm=27&gp=0.jpg',
           'http://img5.imgtn.bdimg.com/it/u=1504812505,3480403568&fm=27&gp=0.jpg',
           'http://img4.imgtn.bdimg.com/it/u=3456219059,4251129897&fm=27&gp=0.jpg',
           'http://img3.imgtn.bdimg.com/it/u=3912316188,1981132393&fm=27&gp=0.jpg'],
-        address: '地点2',
-        time: '2019年3月6日15：12'
+        location: '地点2',
+        release_time: '2019年3月6日15：12'
       },
     ],
     photoWidth: wx.getSystemInfoSync().windowWidth / 5,
-    popTop: 0, //弹出点赞评论框的位置
-    popWidth: 0, //弹出框宽度
-    isShow: true, //判断是否显示弹出框
-  },
-  // 删除
-  delete: function () {
-    wx.showToast({
-      title: '删除成功',
+  },/**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.getArticleList()},
+  getArticleList:function(){
+    var that=this
+    wx.request({
+      url: app.baseUrl +'/article/getArticleList',
+      method: "GET",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "sessionKey": app.globalData.sessionKey
+      },
+      data: {
+      },
+      success(res){
+        //console.log(res.data.data)
+        that.setData({
+          articleList:res.data.data
+        })
+      }
     })
   },
-  TouchDiscuss: function (e) {
-    // this.data.isShow = !this.data.isShow
+  bindCaoZuo: function (e) {  //评论点赞
+    var that = this
+    var dz_id = e.currentTarget.dataset.id
+    // 获取当前节点的偏移TOP值计算当前点赞操作的位置
+    var offsetTop = Math.floor(e.currentTarget.offsetTop)
+    // 赋值计算好的TOP值显示按钮
+    that.setData({
+      dz_id: dz_id,
+      cz_top: offsetTop,
+      cz_flag: true
+    })
+
     // 动画
     var animation = wx.createAnimation({
-      duration: 300,
+      duration: 500,
       timingFunction: 'linear',
       delay: 0,
     })
 
-    if (that.data.isShow == false) {
+    // 0.3秒后滑动
+    setTimeout(function () {
+      animation.right(40).opacity(1).step()
       that.setData({
-        popTop: e.target.offsetTop - (e.detail.y - e.target.offsetTop) / 2,
-        popWidth: 0,
-        isShow: true
+        animationData: animation.export()
       })
+    }, 300)
 
-      // 0.3秒后滑动
-      setTimeout(function () {
-        animation.width(0).opacity(1).step()
-        that.setData({
-          animation: animation.export(),
-        })
-      }, 100)
-    } else {
-      // 0.3秒后滑动
-      setTimeout(function () {
-        animation.width(120).opacity(1).step()
-        that.setData({
-          animation: animation.export(),
-        })
-      }, 100)
-
+    // 5秒后自动隐藏按钮
+    var timeout = setTimeout(function () {
+      animation.right(0).opacity(0).step()
       that.setData({
-        popTop: e.target.offsetTop - (e.detail.y - e.target.offsetTop) / 2,
-        popWidth: 0,
-        isShow: false
+        animationData: animation.export()
       })
-    }
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+    }, 5000)
 
   },
+  
   LookPhoto: function (e) {
     wx.previewImage({
       current: e.currentTarget.dataset.photurl,
@@ -120,7 +134,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+   
   },
 
   /**

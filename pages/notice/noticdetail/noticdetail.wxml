@@ -4,14 +4,14 @@
   </navigator>
 <view class="page">
     <view class="page__hd">
-        <view class="page__title">{{title}}</view>
-        <view class="page__desc">{{release_time}}</view>
+        <view class="page__title">{{announcementList[0].announcement_title}}</view>
+        <view class="page__desc">{{announcementList[0].release_time}}</view>
     </view>
       <view class="container">
       <!-- 分割线 -->
       <view class="divLine"></view>
     </view>
-    <view class='content'>{{content}}</view>
+    <view class='content'>{{announcementList[0].announcement_content}}</view>
 </view>
 
 <!-- <button class='editornotice'>编辑公告</button> -->
