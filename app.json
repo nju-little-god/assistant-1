@@ -26,7 +26,9 @@
     "pages/notice/editdetail/editdetail",
     "pages/notice/releasenotic/releasenotic",
     "pages/followpeople/followme/followme",
-    "pages/followpeople/myfollow/myfollow"
+    "pages/followpeople/myfollow/myfollow",
+    "pages/articleDetails/articleDetails",
+    "pages/userdetails/topicbyothers/topicbyothers"
   ],
   "window": {
     "backgroundTextStyle": "light",
