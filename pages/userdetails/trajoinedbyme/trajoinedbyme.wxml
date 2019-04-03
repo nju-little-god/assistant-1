@@ -1,8 +1,24 @@
 <!--pages/userdetails/trajoinedbyme/trajoinedbyme.wxml-->
-<view wx:for="{{schedule}}" wx:for-index="idx" wx:for-item="sch">
-<view class='detls'>标题：{{sch.title}}</view>
-<view class='detls'>时间：{{sch.execute_time}}</view>
-<view class='detls'>地点：{{sch.target}}</view>
-<view class='detls'>当前状态：{{sch.status}}</view>
+
+
+<view  wx:for="{{schedule}}" wx:for-index="idx" wx:for-item="sch">
+<navigator class='tra_list' url='../../details/details?sid={{sch.sid}}'>
+<view class="wa-item wa-item-thumbnail-left">
+      <text class="icon-right ion-chevron-right"></text>
+      标题：{{sch.title}}
+    </view>
+    <view class="wa-item wa-item-thumbnail-left">
+      <text class="icon-right ion-chevron-right"></text>
+      时间：{{sch.execute_time}}
+    </view>
+    <view class="wa-item wa-item-thumbnail-left">
+      <text class="icon-right ion-chevron-right"></text>
+     地点：{{sch.target}}
+    </view>
+     <view class="wa-item wa-item-thumbnail-left">
+      <text class="icon-right ion-chevron-right"></text>
+     当前状态：{{sch.status}}
+    </view>
 <view text="\n"></view>
+</navigator> 
 </view>

@@ -1,4 +1,4 @@
-// pages/userdetails/topicbyme/topicbyme.js
+// pages/userdetails/topicbyothers/topicbyothers.js
 const app = getApp()
 Page({
 
@@ -9,7 +9,7 @@ Page({
     * 页面的初始数据
     */
   data: {
-    uid:'',
+    uid: '',
     DataSource: [{
       icon: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3175633703,3855171020&fm=27&gp=0.jpg',
       title: '标题1',
@@ -51,13 +51,18 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {  
-    this.getMyAticleList()
+  onLoad: function (options) {
+    this.setData({
+      uid:options.uid
+    })
+    this.getUserAticleList()
   },
-  getMyAticleList:function(){
-    var that=this
+  
+    
+  getUserAticleList: function () {
+    var that = this
     wx.request({
-      url: app.baseUrl +'/article/getMyArticleList',
+      url: app.baseUrl + '/article/getUserArticleList?uid='+this.data.uid,
       method: "GET",
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -65,14 +70,14 @@ Page({
       },
       data: {
       },
-      success(res){
+      success(res) {
+        console.log(res.data)
         that.setData({
-          DataSource:res.data.data
+          DataSource: res.data.data
         })
       }
     })
   },
-  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
