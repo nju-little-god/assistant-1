@@ -1,5 +1,5 @@
 // pages/notice/notice.js
-var app = getApp()
+const app=getApp()
 Page({
   
 
@@ -7,10 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    sid: "",
     userInfo: {},
     announcementList: [{
       // icon: '../../dist/images/iconfont-dingdan.png',
-      title: '公告title1',
+      recordId:"",
+      announcement_title: '公告title1',
       release_time:'发布时间',
       isunread: false,
       unreadNum: 2
@@ -27,19 +29,7 @@ Page({
       // 是否有红点
       isunread: false,
       unreadNum: 1
-    }, {
-      // icon: '../../dist/images/iconfont-shouhuodizhi.png',
-        title: '公告title4',
-        release_time: '发布时间',
-    }, {
-      // icon: '../../dist/images/iconfont-kefu.png',
-        title: '公告title5',
-        release_time: '发布时间',
-    }, {
-      // icon: '../../dist/images/iconfont-help.png',
-        title: '公告title6',
-        release_time: '发布时间',
-    }]
+    },]
   },
 
   /**
@@ -47,30 +37,41 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    // this.getAnnouncementList()
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function (userInfo) {
-      //更新数据
-      that.setData({
-        userInfo: userInfo
-      })
+    this.setData({
+      sid: options.sid
     })
+    console.log(that.data.sid)
+    
+    this.getAnnouncementList()
+    //调用应用实例的方法获取全局数据
+    // app.getUserInfo(function (userInfo) {
+    //   //更新数据
+    //   that.setData({
+    //     userInfo: userInfo
+    //   })
+    // })
   },
 
   getAnnouncementList :function(){
+    var that = this
     wx.request({
       url: app.baseUrl + '/schedule/getAnnouncementList?sid='+ this.data.sid,
       method: "GET",
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
-        "sessionKey": "登录时获取的sessionKey"
+        "sessionKey": app.globalData.sessionKey
       },
       data: {
       },
       success(res) {
+        let dataList = res.data.data;
+        dataList.forEach((announcementList) => {
+          announcementList.release_time = announcementList.release_time.substring(0, 10); //要截取字段的字符串
+        })
         that.setData({
           announcementList: res.data.data
         })
+        console.log(that.data)
       }
     })
   },

@@ -1,4 +1,4 @@
-// pages/notice/noticdetail/noticdetail.js
+// pages/articleDetails/articleDetails.js
 const app = getApp()
 Page({
 
@@ -6,13 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    recordId: "",
-    announcementList:{
-    announcement_title: "公告主题",
-    release_time: "发布时间",
-    announcement_content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commod consequat."
+    aid:1,
+    article:{
     }
-    
 
   },
 
@@ -21,32 +17,25 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      recordId: options.recordId
+      aid:options.aid
     })
-    this.getAnnouncement()
-
-  },
-  getAnnouncement: function () {
-    var that = this
+    this.getArticle()
+  }, 
+  getArticle:function(){
+    var that=this
     wx.request({
-      url: app.baseUrl + '/schedule/getAnnouncement?recordId=' + this.data.recordId,
-      method: "GET",
+      url: app.baseUrl + '/article/getArticle?aid='+this.data.aid,
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
         "sessionKey": app.globalData.sessionKey
       },
       data: {
       },
-      success(res) {
-        let dataList = res.data.data;
-        dataList.forEach((announcementList) => {
-          announcementList.release_time = announcementList.release_time.substring(0, 10); //要截取字段的字符串
-        })
+      success(res){
+        console.log(res)
         that.setData({
-          announcementList: res.data.data
+          article: res.data.data
         })
-        console.log(that.data)
-      
       }
     })
   },

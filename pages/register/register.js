@@ -50,24 +50,33 @@ Page({
 
   },
   register: function () {
-    console.log(this.data.uid)
-    wx.request({
-      url: app.baseUrl + "/register",
-      method: "POST",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
-        // "uid": this.data.uid,
-        "nickname": this.data.nickname,
-        "sex": this.data.sex[index],
-        "college": this.data.college,
-        "major": this.data.major,
-        "entrance_time": this.data.entrence_time,
-        "describe": this.data.describe
-      },
+    var that = this
+    // console.log(this.data.uid)
+    wx.login({
       success(res) {
-        console.log(res)
+        wx.request({
+          url: app.baseUrl + '/register',
+          method: "POST",
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          data: {
+            userCode: res.code,
+            "nickname": that.data.nickname,
+            "sex": that.data.sex[that.data.index],
+            "college": that.data.college,
+            "major": that.data.major,
+            "entrance_time": that.data.entrance_time,
+            "describe": that.data.describe,
+            "sessionKey": that.data.sessionKey
+          },
+          success(res) {
+            console.log(res)
+            wx.navigateBack({
+              delta: 1,
+            })
+          }
+        })
       }
     })
   },

@@ -62,9 +62,9 @@
     <!-- <picker bindchange="setSex"  value='{{index}}' range="{{sex}}">
         <view class='weui-input'>{{sex[index]}}</view>
     </picker> -->
-    <picker range="{{sex}}" value="{{index}}" bindchange="setSex">
+    <picker range="{{sexType}}" value="{{index}}" bindchange="setIndex">
     <view class='weui-input'>
-      {{sex[index]}}
+      {{sexType[index]}}
     </view>
 </picker>
   </view>

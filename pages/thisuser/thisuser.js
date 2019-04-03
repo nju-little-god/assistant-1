@@ -2,13 +2,18 @@
 var util = require('../../utils/util.js')
 const app = getApp()
 Page({
+
   data: {
+    uid: "",
+    userInfo: {
+
+    },
     IfFollow: "关注用户",
-    uid: "uid",
+    // uid: "uid",
     nickname: "用户昵称",
     follow_time: "关注时间",
     //未关注是0，已关注是1
-    followed_uid:0
+    iffollowed: 0
     // userInfo: {
 
 
@@ -21,8 +26,10 @@ Page({
     })
   },
 
-  onLoad: function () {
-    console.log('onLoad')
+  onLoad: function (options) {
+    this.setData({
+      uid: options.uid
+    })
     var that = this
     that.getMyInfo()
     //调用应用实例的方法获取全局数据
@@ -32,38 +39,38 @@ Page({
         userInfo: userInfo
       })
     })
+    that.isFollowed()
   },
   tofollow: function () {
     this.setData({
-      followed_uid: 1
+      iffollowed: 1
     })
-    // this.setData({
-    //   IfFollow:"取消关注"
-    // })
   },
-  
-  nofollow: function(){
+
+  nofollow: function () {
     this.setData({
-      followed_uid: 0
+      iffollowed: 0
     })
     // this.setData({
     //   IfFollow:"关注用户"
     // })
   },
+
+
   //关注用户
   followUser: function () {
     this.setData({
-      followed_uid: 1
+      iffollowed: 1
     })
     wx.request({
       url: app.baseUrl + '/user/followUser',
       method: "POST",
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
-        "sessionKey": "登录时获取的sessionKey"
+        "sessionKey": app.globalData.sessionKey
       },
       data: {
-        followed_uid: 1
+        followed_uid: this.data.uid
       },
       success(res) {
         console.log(res)
@@ -74,11 +81,11 @@ Page({
             icon: 'success',
             duration: 2000
           })
-          setTimeout(function () {
-            wx.navigateBack({
-              delta: 2
-            })
-          }, 2000)
+          // setTimeout(function () {
+          //   wx.navigateBack({
+          //     delta: 2
+          //   })
+          // }, 2000)
         }
       }
     })
@@ -89,16 +96,17 @@ Page({
   //取消关注用户
   disfollowUser: function () {
     this.setData({
-      followed_uid: 0
+      iffollowed: 0
     })
     wx.request({
       url: app.baseUrl + "/user/disfollowUser",
+      method: "POST",
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
-        "sessionKey": "登录时获取的sessionKey"
+        "sessionKey": app.globalData.sessionKey
       },
       data: {
-        followed_uid: 0
+        followed_uid: this.data.uid
       },
       success(res) {
         console.log(res)
@@ -122,12 +130,37 @@ Page({
     // })
   },
 
+  isFollowed:function(){
+    var that = this   
+    wx.request({
+      url: app.baseUrl + '/user/isFollowed?uid=1',
+      method: "GET",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "sessionKey": app.globalData.sessionKey
+      },
+      data: {
+      },
+      success(res){
+        console.log(res.data)
+        if (res.data.data==true)
+        that.setData({
+          iffollowed: 1
+        })
+        else
+        that.setData({
+          iffollowed:0
+        })
+      }
+      
+    })
+  },
 
   getMyInfo: function () {
-    //console.log(app.globalData)
+    //console.log(ap)
     var that = this
     wx.request({
-      url: app.baseUrl + '/getMyInfo?uid=' + this.data.uid,
+      url: app.baseUrl + '/getUser?uid=' + this.data.uid,
       method: "GET",
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -143,5 +176,5 @@ Page({
   },
 
 
-  
+
 }) 

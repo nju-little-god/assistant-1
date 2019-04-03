@@ -115,7 +115,7 @@ Page({
         target_province: this.data.target_region[0],
         target_city: this.data.target_region[1],
         target_area: this.data.target_region[2],
-        target_detail: this.data.target_detail,
+        target: this.data.target_detail,
         //见面地点-省
         meet_place_province: this.data.meet_place_region[0],
         //见面地点-市
@@ -124,10 +124,10 @@ Page({
         meet_place_area: this.data.meet_place_region[2],
         //见面地点-详细地点
         meet_place_detail: this.data.meet_place_detail,
-        recruit_start_time: this.data.recruit_start_date +" "+this.data.recruit_start_time,
-        recruit_end_time: this.data.recruit_end_date +" "+ this.data.recruit_end_time,
-        execute_time: this.data.execute_date +" "+ this.data.execute_time,
-        end_time: this.data.end_date +" "+ this.data.end_time,
+        recruit_start_time: this.data.recruit_start_date + " " + this.data.recruit_start_time,
+        recruit_end_time: this.data.recruit_end_date + " " + this.data.recruit_end_time,
+        execute_time: this.data.execute_date + " " + this.data.execute_time,
+        end_time: this.data.end_date + " " + this.data.end_time,
         title: this.data.title,
         content: this.data.content,
         partookNum: this.data.partookNum

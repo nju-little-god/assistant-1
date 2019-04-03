@@ -5,8 +5,8 @@
       <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     </view>
     <view class="user-info flex-item">
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      <text class="edit" bindtap='register'>性别：{{userInfo.sex}}　　　年龄：22岁</text> 
+      <text class="userinfo-nickname">昵称：{{userInfo.nickname}}</text>
+      <text class="edit" bindtap='editMsg'> 性别：{{userInfo.sex}}　　　年龄：22岁</text> 
       <text class="edit"></text>
     </view>
   </view>
@@ -38,13 +38,7 @@
         <navigator url='../followpeople/myfollow/myfollow'>我关注的人</navigator>
       </view>
     </view>
-     <view class="my-item flex-wrp">
-      <view class="myitem-icon flex-item" >
-      </view>
-      <view class="myitem-name flex-item">
-        <navigator url='../followpeople/followme/followme'>关注我的人</navigator>
-      </view>
-    </view>
+  
     <view class="my-item flex-wrp">
       <view class="myitem-icon flex-item" >
       </view>
@@ -77,14 +71,6 @@
       </view>
     </view>
   
-    
-    <view class="my-item flex-wrp">
-      <view class="myitem-icon flex-item" >
-        
-      </view>
-      <view class="myitem-name flex-item">
-        <navigator url='../userdetails/topicsavebyme/topicsavebyme'>我收藏的帖子</navigator>
-      </view>
-    </view>
+  
   </view>
 </view>

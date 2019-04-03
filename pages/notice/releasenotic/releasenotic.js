@@ -1,10 +1,13 @@
 // pages/notice/releasenotic/releasenotic.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    recordId: "",
+    sid: "",
     title: "公告标题",
     content: "公告内容",
 
@@ -20,29 +23,55 @@ Page({
     })
   },
 
+  /**
+  * 生命周期函数--监听页面加载
+  */
+  onLoad: function (options) {
+    var that = this
+    this.setData({
+      sid: options.sid
+    })
+    // this.releaseAnnouncement()
+
+  },
+
+
   releaseAnnouncement: function(){
+    var that= this
     wx.request({
-      url: app.baseUrl + '/schedule/releaseAnnouncement',
+      url: app.baseUrl + '/schedule/releaseAnnouncement?sid'+ this.data.sid,
       method: "POST",
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
-        "sessionKey": "登录时获取的sessionKey"
+        "sessionKey": app.globalData.sessionKey
       },
       data: {
-        sid: 1,
+        sid: this.data.sid,
         title: this.data.title,
         content: this.data.content,
+      },
+      success(res) {
+        
+        console.log(that.data)
+        if (res.data.result == 1) {
+          console.log("发布成功")
+          wx.showToast({
+            title: res.data.message,
+            icon: 'success',
+            duration: 2000
+          })
+          wx.navigateBack({
+            delta: 1,
+          })
+        }
       }
     })
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
 
-  },
+
+ 
 
   /**
    * 生命周期函数--监听页面初次渲染完成
